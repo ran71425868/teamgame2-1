@@ -51,6 +51,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /teamgame/Library
 /teamgame/Logs
+/teamgame/Temp
 /teamgame/UserSettings
 /teamgame/teamgame.sln
 /teamgame/.vsconfig
