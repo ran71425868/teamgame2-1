@@ -87,14 +87,14 @@ public class CameraMover : MonoBehaviour
     //カメラの回転 マウス
     private void CameraRotationMouseControl()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             _startMousePos = Input.mousePosition;
             _presentCamRotation.x = _camTransform.transform.eulerAngles.x;
             _presentCamRotation.y = _camTransform.transform.eulerAngles.y;
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             //(移動開始座標 - マウスの現在座標) / 解像度 で正規化
             float x = (_startMousePos.x - Input.mousePosition.x) / Screen.width;
@@ -111,25 +111,25 @@ public class CameraMover : MonoBehaviour
     //カメラの移動 マウス
     private void CameraSlideMouseControl()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            _startMousePos = Input.mousePosition;
-            _presentCamPos = _camTransform.position;
-        }
+    //    if (Input.GetMouseButtonDown(0))
+    //    {
+    //        _startMousePos = Input.mousePosition;
+    //        _presentCamPos = _camTransform.position;
+    //    }
 
-        if (Input.GetMouseButton(1))
-        {
-            //(移動開始座標 - マウスの現在座標) / 解像度 で正規化
-            float x = (_startMousePos.x - Input.mousePosition.x) / Screen.width;
-            float y = (_startMousePos.y - Input.mousePosition.y) / Screen.height;
+    //    if (Input.GetMouseButton(0))
+    //    {
+    //        //(移動開始座標 - マウスの現在座標) / 解像度 で正規化
+    //        float x = (_startMousePos.x - Input.mousePosition.x) / Screen.width;
+    //        float y = (_startMousePos.y - Input.mousePosition.y) / Screen.height;
 
-            x = x * _positionStep;
-            y = y * _positionStep;
+    //        x = x * _positionStep;
+    //        y = y * _positionStep;
 
-            Vector3 velocity = _camTransform.rotation * new Vector3(x, y, 0);
-            velocity = velocity + _presentCamPos;
-            _camTransform.position = velocity;
-        }
+    //        Vector3 velocity = _camTransform.rotation * new Vector3(x, y, 0);
+    //        velocity = velocity + _presentCamPos;
+    //        _camTransform.position = velocity;
+    //    }
     }
 
     //カメラのローカル移動 キー
