@@ -78,7 +78,7 @@ public class MovementInput : MonoBehaviour {
         }
         else
         {
-            verticalVel -= 0.1f;// 落下中なら重力を加える
+            verticalVel -= 1;// 落下中なら重力を加える
         }
 
         // 垂直方向の移動（重力影響）
