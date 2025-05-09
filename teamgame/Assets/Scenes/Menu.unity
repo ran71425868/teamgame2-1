@@ -996,7 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btn: {fileID: 810676219}
-  toolType: 0
+  toolType: 1
 --- !u!114 &810676219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1961,6 +1961,8 @@ MonoBehaviour:
   toolSelectCells:
   - {fileID: 1930034055}
   - {fileID: 810676218}
+  shipObj: {fileID: 6803398134202381922, guid: 80a1d73b7e0eb904f8b089f305e63f1c, type: 3}
+  shipParent: {fileID: 2108334572}
 --- !u!4 &2108334574
 Transform:
   m_ObjectHideFlags: 0

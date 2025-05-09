@@ -25,12 +25,23 @@ public class UIToolSelectCell : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        btn.onClick.AddListener(() => { OnButtonClick?.Invoke(toolType); });
+        btn.onClick.AddListener(() => {
+            OnButtonClick?.Invoke(toolType);
+            this.btn.interactable = false;
+        });
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    /// <summary>
+    /// interactable ‚ÌƒŠƒZƒbƒg
+    /// </summary>
+    public void ResetButtonInteractable()
+    {
+        this.btn.interactable = true;
     }
 }

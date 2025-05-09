@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 /// <summary>
@@ -12,6 +13,9 @@ public class MenuSceneController : MonoBehaviour
     [SerializeField]
     private List<UIToolSelectCell> toolSelectCells;
 
+    [SerializeField] private GameObject shipObj=null;
+    [SerializeField] private GameObject shipParent=null;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +24,7 @@ public class MenuSceneController : MonoBehaviour
         {
             cell.SetButtonClickCallback(OnClickedToolSelectCell);
         }
+
     }
 
     // Update is called once per frame
@@ -28,17 +33,39 @@ public class MenuSceneController : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// ボタンリセット
+    /// </summary>
+    public void ResetButton()
+    {
+        foreach (var cell in toolSelectCells)
+        {
+            cell.ResetButtonInteractable();
+        }
+
+        for(int i = 0; i > this.toolSelectCells.Count; i++)
+        {
+            toolSelectCells[i].ResetButtonInteractable();
+        }
+    }
+
     // ツールセレクトセルが押された際の処理
     private void OnClickedToolSelectCell(EToolType toolType) {
 
-        switch (toolType) { 
+        switch (toolType)
+        {
             case EToolType.None:
 
                 break;
 
             case EToolType.Ship:
+                Debug.Log($"きた {toolType}");
+                GameObject instanceObj = GameObject.Instantiate(this.shipObj, this.shipParent.transform);
+                instanceObj.transform.position = Vector3.zero;
 
-                break;
+                SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+
+                break; 
 
 
         }
