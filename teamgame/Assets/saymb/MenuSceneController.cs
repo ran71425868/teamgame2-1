@@ -13,6 +13,8 @@ public class MenuSceneController : MonoBehaviour
     [SerializeField]
     private List<UIToolSelectCell> toolSelectCells;
 
+    [SerializeField] private int BlockNumber = 0;
+
     [SerializeField] private GameObject shipObj=null;
     [SerializeField] private GameObject shipParent=null;
 
@@ -55,11 +57,13 @@ public class MenuSceneController : MonoBehaviour
         switch (toolType)
         {
             case EToolType.None:
-
+                BlockNumber = 1;
                 break;
 
             case EToolType.Ship:
-                Debug.Log($"‚«‚½ {toolType}");
+
+                BlockNumber = 2;
+                //Debug.Log($"‚«‚½ {toolType}");
                 GameObject instanceObj = GameObject.Instantiate(this.shipObj, this.shipParent.transform);
                 instanceObj.transform.position = Vector3.zero;
 
