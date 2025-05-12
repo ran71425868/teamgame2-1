@@ -14,6 +14,10 @@ public class MenuSceneController : MonoBehaviour
     private List<UIToolSelectCell> toolSelectCells;
 
     [SerializeField] private int BlockNumber = 0;
+    [SerializeField] extern public MoveBlock MovementControll();
+
+    [SerializeField] private GameObject noneObj = null;
+    [SerializeField] private GameObject noneParent = null;
 
     [SerializeField] private GameObject shipObj=null;
     [SerializeField] private GameObject shipParent=null;
@@ -58,16 +62,35 @@ public class MenuSceneController : MonoBehaviour
         {
             case EToolType.None:
                 BlockNumber = 1;
+                
+
+                GameObject instanceObjNone = GameObject.Instantiate(this.noneObj, this.noneParent.transform);
+                instanceObjNone.transform.position = Vector3.zero;
+
+                SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+
+                if (BlockNumber == 1)
+                {
+                    MovementControll();
+                    BlockNumber = 0;
+                }
                 break;
 
             case EToolType.Ship:
 
                 BlockNumber = 2;
+                
                 //Debug.Log($"‚«‚½ {toolType}");
-                GameObject instanceObj = GameObject.Instantiate(this.shipObj, this.shipParent.transform);
-                instanceObj.transform.position = Vector3.zero;
+                GameObject instanceObjShip = GameObject.Instantiate(this.shipObj, this.shipParent.transform);
+                instanceObjShip.transform.position = Vector3.zero;
 
                 SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+
+                if (BlockNumber == 2)
+                {
+                    MovementControll();
+                    BlockNumber = 0;
+                }
 
                 break; 
 
