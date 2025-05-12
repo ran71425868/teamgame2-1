@@ -14,7 +14,7 @@ public class MenuSceneController : MonoBehaviour
     private List<UIToolSelectCell> toolSelectCells;
 
     [SerializeField] private int BlockNumber = 0;
-    [SerializeField] extern public MoveBlock MovementControll();
+    //[SerializeField] extern public MoveBlock MovementControll();
 
     [SerializeField] private GameObject noneObj = null;
     [SerializeField] private GameObject noneParent = null;
@@ -49,10 +49,10 @@ public class MenuSceneController : MonoBehaviour
             cell.ResetButtonInteractable();
         }
 
-        for(int i = 0; i > this.toolSelectCells.Count; i++)
-        {
-            toolSelectCells[i].ResetButtonInteractable();
-        }
+        //for(int i = 0; i > this.toolSelectCells.Count; i++)
+        //{
+        //    toolSelectCells[i].ResetButtonInteractable();
+        //}
     }
 
     // ツールセレクトセルが押された際の処理
@@ -62,38 +62,32 @@ public class MenuSceneController : MonoBehaviour
         {
             case EToolType.None:
                 BlockNumber = 1;
-                
 
-                GameObject instanceObjNone = GameObject.Instantiate(this.noneObj, this.noneParent.transform);
-                instanceObjNone.transform.position = Vector3.one;
+
+                GameObject instanceObj = GameObject.Instantiate(this.noneObj, this.noneParent.transform);
+                instanceObj.transform.position = Vector3.one;
 
                 SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
 
-                if (BlockNumber == 1)
-                {
-                    MovementControll();
-                    BlockNumber = 0;
-                }
                 break;
 
             case EToolType.Ship:
 
                 BlockNumber = 2;
-                
+
                 //Debug.Log($"きた {toolType}");
-                GameObject instanceObjShip = GameObject.Instantiate(this.shipObj, this.shipParent.transform);
-                instanceObjShip.transform.position = Vector3.one;
+                instanceObj = GameObject.Instantiate(this.shipObj, this.shipParent.transform);
+                instanceObj.transform.position = Vector3.one;
 
                 SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
 
-                if (BlockNumber == 2)
-                {
-                    MovementControll();
-                    BlockNumber = 0;
-                }
+                break;
 
-                break; 
+            case EToolType.Reset:
 
+                ResetButton();
+
+                break;
 
         }
     }
