@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class MoveBlock : MonoBehaviour
 {
+    [SerializeField, Header("‘¬“x")]
+    private float speed;
+    private Rigidbody rb = null;
 
-    public Rigidbody rb;
     public Vector3 moving, latestPos;
-    public float speed;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        speed = 5;
+        //speed = 5;
     }
 
     // Update is called once per frame
