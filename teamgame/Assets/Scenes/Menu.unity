@@ -1983,6 +1983,8 @@ MonoBehaviour:
   - {fileID: 1930034055}
   - {fileID: 810676218}
   BlockNumber: 0
+  noneObj: {fileID: 919132149155446097, guid: 1598ad653f8088c43a90970af5f20d49, type: 3}
+  noneParent: {fileID: 2108334572}
   shipObj: {fileID: 6803398134202381922, guid: 80a1d73b7e0eb904f8b089f305e63f1c, type: 3}
   shipParent: {fileID: 2108334572}
 --- !u!4 &2108334574

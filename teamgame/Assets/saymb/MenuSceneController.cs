@@ -65,7 +65,7 @@ public class MenuSceneController : MonoBehaviour
                 
 
                 GameObject instanceObjNone = GameObject.Instantiate(this.noneObj, this.noneParent.transform);
-                instanceObjNone.transform.position = Vector3.zero;
+                instanceObjNone.transform.position = Vector3.one;
 
                 SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
 
@@ -82,7 +82,7 @@ public class MenuSceneController : MonoBehaviour
                 
                 //Debug.Log($"‚«‚½ {toolType}");
                 GameObject instanceObjShip = GameObject.Instantiate(this.shipObj, this.shipParent.transform);
-                instanceObjShip.transform.position = Vector3.zero;
+                instanceObjShip.transform.position = Vector3.one;
 
                 SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
 
