@@ -5,7 +5,6 @@ using UnityEngine;
 public class MoveBlock : MonoBehaviour
 {
 
-
     public Rigidbody rb;
     public Vector3 moving, latestPos;
     public float speed;
@@ -35,6 +34,8 @@ public class MoveBlock : MonoBehaviour
         moving = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0 );
         moving.Normalize();
         moving = moving * speed;
+
+        transform.position = transform.position + (moving * speed) * Time.deltaTime;
     }
 
     //public void RotateToMovingDirection()
