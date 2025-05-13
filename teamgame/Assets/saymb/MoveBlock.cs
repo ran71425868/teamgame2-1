@@ -10,6 +10,8 @@ public class MoveBlock : MonoBehaviour
 
     public Vector3 moving, latestPos;
 
+    private int num=0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -22,39 +24,37 @@ public class MoveBlock : MonoBehaviour
     void Update()
     {
         MovementControll();
-        Movement();
     }
-
-    //void FixedUpdate()
-    //{
-    //    RotateToMovingDirection();
-    //}
 
     void MovementControll()
     {
-        moving = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0 );
-        moving.Normalize();
-        moving = moving * speed;
+        //var block = BlockManager.Instance.GetBlockByID(5);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            num = 1;
+        }
+
+        switch (num)
+        {
+            case 0:
+                moving = new Vector3(0, Input.GetAxisRaw("Vertical"), 0);
+                moving.Normalize();
+                moving = moving * speed;
+
+                break;
+
+            case 1:
+
+                moving = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+                moving.Normalize();
+                moving = moving * speed;
+                
+                break;
+
+        }
 
         transform.position = transform.position + (moving * speed) * Time.deltaTime;
-    }
-
-    //public void RotateToMovingDirection()
-    //{
-    //    Vector3 differenceDis = new Vector3(transform.position.x, 0, transform.position.z) - new Vector3(latestPos.x, 0, latestPos.z);
-    //    latestPos = transform.position;
-       
-    //    if (Mathf.Abs(differenceDis.x) > 0.001f || Mathf.Abs(differenceDis.z) > 0.001f)
-    //    {
-    //        Quaternion rot = Quaternion.LookRotation(differenceDis);
-    //        rot = Quaternion.Slerp(rb.transform.rotation, rot, 0.1f);
-    //        this.transform.rotation = rot;
-    //    }
-    //}
-
-    void Movement()
-    {
-        //rb.velocity = moving;
     }
 
 }

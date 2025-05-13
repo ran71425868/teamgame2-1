@@ -13,7 +13,6 @@ public class MenuSceneController : MonoBehaviour
     [SerializeField]
     private List<UIToolSelectCell> toolSelectCells;
 
-    [SerializeField] private int BlockNumber = 0;
     //[SerializeField] extern public MoveBlock MovementControll();
 
     [SerializeField] private GameObject noneObj = null;
@@ -61,8 +60,7 @@ public class MenuSceneController : MonoBehaviour
         switch (toolType)
         {
             case EToolType.None:
-                BlockNumber = 1;
-
+            
 
                 GameObject instanceObj = GameObject.Instantiate(this.noneObj, this.noneParent.transform);
                 instanceObj.transform.position = Vector3.one;
@@ -73,7 +71,6 @@ public class MenuSceneController : MonoBehaviour
 
             case EToolType.Ship:
 
-                BlockNumber = 2;
 
                 //Debug.Log($"‚«‚½ {toolType}");
                 instanceObj = GameObject.Instantiate(this.shipObj, this.shipParent.transform);
