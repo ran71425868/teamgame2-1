@@ -1036,6 +1036,16 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6265245685115581082, guid: 89697f986f9754e46bd9dfdde35a15b9, type: 3}
   m_PrefabInstance: {fileID: 6737099504315701721}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &919132149296409094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4618779271544313245, guid: 3acb61cf45d166b47a4ce65f17186696, type: 3}
+  m_PrefabInstance: {fileID: 5537275347984334747}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &919132149539160310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 133595531904201368, guid: 97d314cff6f614d44ad5824dc7366a28, type: 3}
+  m_PrefabInstance: {fileID: 944570357570269806}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &944570357570269806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1402,6 +1412,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2da709cf312fa754681936cc2e768eba, type: 3}
+--- !u!64 &3469287837173749228
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149539160310}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: a70b23e0a020039429b1cec956d4ec4f, type: 3}
+--- !u!64 &3469287837349412635
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149296409094}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5495902117074765545, guid: d830eab67dcad314eb0ee1a83f8cb70d, type: 3}
 --- !u!1001 &4597174172581802863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1713,7 +1751,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5537275347666248609, guid: 3acb61cf45d166b47a4ce65f17186696, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5537275347666248609, guid: 3acb61cf45d166b47a4ce65f17186696, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3acb61cf45d166b47a4ce65f17186696, type: 3}
 --- !u!1001 &6544880973040268471
 PrefabInstance:
