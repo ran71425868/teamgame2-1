@@ -21,6 +21,8 @@ public class MenuSceneController : MonoBehaviour
     [SerializeField] private GameObject shipObj=null;
     [SerializeField] private GameObject shipParent=null;
 
+   // int[] hairetu = new int[4] { 1, 2, 3, 4 };
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +31,7 @@ public class MenuSceneController : MonoBehaviour
         {
             cell.SetButtonClickCallback(OnClickedToolSelectCell);
         }
+
 
     }
 
@@ -63,20 +66,42 @@ public class MenuSceneController : MonoBehaviour
             
 
                 GameObject instanceObj = GameObject.Instantiate(this.noneObj, this.noneParent.transform);
+                var block = instanceObj.GetComponent<MoveBlock>();
+                BlockManager.Instance.blocks.Add(block);
                 instanceObj.transform.position = Vector3.one;
 
-                SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+                if (!SceneManager.GetSceneByName("Smap").IsValid())
+                {
+                    Debug.Log("Smapシーンないので生成する");
+                    SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+                }
+                var getBlock =  BlockManager.Instance.GetBlockByNum(0);
+
+                //BlockManager.Instance.blocks.RemoveAt(1);
+                //BlockManager.Instance.blocks.Remove(block);
+
 
                 break;
 
             case EToolType.Ship:
 
 
-                //Debug.Log($"きた {toolType}");
                 instanceObj = GameObject.Instantiate(this.shipObj, this.shipParent.transform);
+                block = instanceObj.GetComponent<MoveBlock>();
+                BlockManager.Instance.blocks.Add(block);
                 instanceObj.transform.position = Vector3.one;
 
-                SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+                if (!SceneManager.GetSceneByName("Smap").IsValid())
+                {
+                    Debug.Log("Smapシーンないので生成する");
+                    SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+                }
+
+                getBlock = BlockManager.Instance.GetBlockByNum(1);
+
+
+                //BlockManager.Instance.blocks.RemoveAt(1);
+                
 
                 break;
 
@@ -84,6 +109,13 @@ public class MenuSceneController : MonoBehaviour
 
                 ResetButton();
 
+                break;
+
+
+            case EToolType.back:
+
+                BlockManager.Instance.blocks.RemoveAt(1);
+                //BlockManager.Instance.blocks.Remove(block);
                 break;
 
         }
