@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3057336076293634566}
   - component: {fileID: 975347900276477644}
   - component: {fileID: 186764234720925460}
-  - component: {fileID: 7825817401372053998}
+  - component: {fileID: 1419818452225606215}
   m_Layer: 0
   m_Name: "\u661F"
   m_TagString: Untagged
@@ -100,8 +100,8 @@ MonoBehaviour:
   speed: 0
   moving: {x: 0, y: 0, z: 0}
   latestPos: {x: 0, y: 0, z: 0}
---- !u!65 &7825817401372053998
-BoxCollider:
+--- !u!64 &1419818452225606215
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -110,6 +110,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.044767007, y: 0.042575948, z: 0.004999999}
-  m_Center: {x: -0.000119903125, y: 0.0021202392, z: 0.002335033}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1101733005453906574, guid: ca13016f00ae0f54cbe5094e1c96f5ea, type: 3}

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 601560152410363127}
   - component: {fileID: 4609135496079874898}
   - component: {fileID: 1734456614060879768}
+  - component: {fileID: 7847492532907682908}
+  - component: {fileID: 2762578726502089383}
   m_Layer: 0
   m_Name: snake
   m_TagString: Untagged
@@ -83,3 +85,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7847492532907682908
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221515763872386637}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4172089705709640510, guid: 6aa96340f219bef42a6f232f5a3bc150, type: 3}
+--- !u!114 &2762578726502089383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221515763872386637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0818f70e3341f44a8fda8f8be74dea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  moving: {x: 0, y: 0, z: 0}
+  latestPos: {x: 0, y: 0, z: 0}
