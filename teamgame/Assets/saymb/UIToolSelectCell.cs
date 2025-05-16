@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum EToolType { 
+public enum EToolType
+{
 
     None = 0,
     Ship = 1,
+    Reset = 2,
 }
 
 public class UIToolSelectCell : MonoBehaviour
@@ -42,6 +44,6 @@ public class UIToolSelectCell : MonoBehaviour
     /// </summary>
     public void ResetButtonInteractable()
     {
-        this.btn.interactable = true;
+            this.btn.interactable = true;
     }
 }
