@@ -3,28 +3,29 @@ using UnityEngine;
 
 public class BlockManager : SingletonMonoBehaviour<BlockManager>
 {
-    public List<Block> blocks = new List<Block>(); // ブロックのリスト
+    public List<MoveBlock> blocks = new List<MoveBlock>(); // ブロックのリスト
 
     void Start()
     {
-
+        
     }
 
-    public Block GetBlockByID(int id)
+    public MoveBlock GetBlockByNum(int num)
     {
         // シーン内のすべてのブロックを取得
-        Block[] allBlocks = FindObjectsOfType<Block>();
-        blocks.AddRange(allBlocks);
+        //Block[] allBlocks = FindObjectsOfType<Block>();
+        //blocks.AddRange(allBlocks);
 
         // IDでブロックを検索
-        return blocks.Find(block => block.blockID == id);
+        return this.blocks[num];
+        //return this.blocks.Find(block => block.blockID == id);
     }
 
-    public void DeactivateAllBlocks()
-    {
-        foreach (Block block in blocks)
-        {
-            block.DeactivateBlock();
-        }
-    }
+    //public void DeactivateAllBlocks()
+    //{
+    //    foreach (MoveBlock block in blocks)
+    //    {
+    //        block.DeactivateBlock();
+    //    }
+    //}
 }
