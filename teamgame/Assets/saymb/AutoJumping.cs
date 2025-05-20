@@ -9,11 +9,13 @@ public class AutoJumping : MonoBehaviour
     /// Colliderが他のトリガーに入った時に呼び出される
     /// </summary>
     /// <param/* name="other*/">当たった相手のオブジェクト</param>
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         // 当たった相手のタグがPlayerだった場合
         if (other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("あたった");
+
             // 当たった相手のRigidbodyコンポーネントを取得して、上向きの力を加える
             other.gameObject.GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.Impulse);
         }
