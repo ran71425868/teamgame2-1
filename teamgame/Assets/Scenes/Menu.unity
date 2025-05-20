@@ -1901,7 +1901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btn: {fileID: 2065965368}
-  toolType: 0
+  toolType: 3
 --- !u!114 &2065965368
 MonoBehaviour:
   m_ObjectHideFlags: 0
