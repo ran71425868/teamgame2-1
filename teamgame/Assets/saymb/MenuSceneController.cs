@@ -1,5 +1,7 @@
+using OpenCover.Framework.Model;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,7 +23,7 @@ public class MenuSceneController : MonoBehaviour
     [SerializeField] private GameObject shipObj=null;
     [SerializeField] private GameObject shipParent=null;
 
-   // int[] hairetu = new int[4] { 1, 2, 3, 4 };
+    // int[] hairetu = new int[4] { 1, 2, 3, 4 };
 
 
     // Start is called before the first frame update
@@ -77,6 +79,8 @@ public class MenuSceneController : MonoBehaviour
                 }
                 var getBlock =  BlockManager.Instance.GetBlockByNum(0);
 
+
+               
                 //BlockManager.Instance.blocks.RemoveAt(1);
                 //BlockManager.Instance.blocks.Remove(block);
 
@@ -99,9 +103,13 @@ public class MenuSceneController : MonoBehaviour
 
                 getBlock = BlockManager.Instance.GetBlockByNum(1);
 
+                //if (BlockManager.Instance.blocks.Count == 2)
+                //{
+                //    instanceObj.SetActive(false);
+                //}
 
                 //BlockManager.Instance.blocks.RemoveAt(1);
-                
+
 
                 break;
 
@@ -114,7 +122,7 @@ public class MenuSceneController : MonoBehaviour
 
             case EToolType.back:
 
-                BlockManager.Instance.blocks.RemoveAt(1);
+                //BlockManager.Instance.blocks.RemoveAt(1);
                 //BlockManager.Instance.blocks.Remove(block);
                 break;
 

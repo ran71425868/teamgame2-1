@@ -16,8 +16,17 @@ public class BlockManager : SingletonMonoBehaviour<BlockManager>
         //Block[] allBlocks = FindObjectsOfType<Block>();
         //blocks.AddRange(allBlocks);
 
+
+
+        if (blocks.Count > 0)
+        {
+            blocks.RemoveAt(0);
+        }
+
         // ID‚ÅƒuƒƒbƒN‚ðŒŸõ
         return this.blocks[num];
+
+       
         //return this.blocks.Find(block => block.blockID == id);
     }
 
