@@ -13,7 +13,8 @@ public class MoveBlock : MonoBehaviour
     private int num=0;
 
 
-
+    // true...“®‚©‚¹‚é
+    public bool focusFlag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,8 @@ public class MoveBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (focusFlag == false)
+            return;
         
         MovementControll();
     }
@@ -37,6 +39,11 @@ public class MoveBlock : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             num = 1;
+        }
+        else if(Input.GetKeyDown(KeyCode.Space))
+        {
+            num = 0;
+
         }
 
         switch (num)
