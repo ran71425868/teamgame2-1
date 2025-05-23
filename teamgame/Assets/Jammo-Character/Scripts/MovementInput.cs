@@ -213,19 +213,22 @@ public class MovementInput : MonoBehaviour
 
         t.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("JumpPad") && !isJumping)
-        {
-            Transform jumpTarget = other.transform; // ジャンプ台のTransformから方向と位置を取得
-            StartCoroutine(JumpOverObstacle(jumpTarget));
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("JumpPad") && !isJumping)
+    //    {
+    //        Transform jumpTarget = other.transform; // ジャンプ台のTransformから方向と位置を取得
+    //        StartCoroutine(JumpOverObstacle(jumpTarget));
+    //    }
+    //}
     //西田 jumpOverObstacle　追加
-    private IEnumerator JumpOverObstacle(Transform jumpPad)
+    public IEnumerator JumpOverObstacle(Transform jumpPad,float jumpForce)
     {
         isJumping = true;
         m_Agent.enabled = false;
+
+        // 当たった相手のRigidbodyコンポーネントを取得して、上向きの力を加える
+        GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.Impulse);
 
         Vector3 startPos = transform.position;
         Vector3 endPos = jumpPad.position + jumpPad.forward * 5f; // 飛び先はジャンプ台の前方5メートル

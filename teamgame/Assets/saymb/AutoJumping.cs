@@ -12,12 +12,13 @@ public class AutoJumping : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         // 当たった相手のタグがPlayerだった場合
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             Debug.Log("あたった");
 
-            // 当たった相手のRigidbodyコンポーネントを取得して、上向きの力を加える
-            other.gameObject.GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.Impulse);
+            StartCoroutine(other.gameObject.GetComponent<MovementInput>().JumpOverObstacle(this.transform, jumpForce));
         }
     }
+
+
 }
