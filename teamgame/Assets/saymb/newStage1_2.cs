@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class newStage : MonoBehaviour
+public class newStage1_2 : MonoBehaviour
 {
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene("Smap");
+            SceneManager.LoadScene("Scene_03");
         }
     }
 }
