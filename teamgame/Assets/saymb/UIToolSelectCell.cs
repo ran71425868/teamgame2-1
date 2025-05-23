@@ -21,11 +21,10 @@ public enum EToolType
     Sasuke = 12,
     Outlet = 13,
     Escargot = 14,
-    curve = 15,
-
-
-
-    //Back = 3,
+    Curve = 15,
+    Clay = 16,
+    Back = 17,
+    Reset = 18,
 }
 
 public class UIToolSelectCell : MonoBehaviour
