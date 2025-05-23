@@ -9,6 +9,7 @@ public class MoveBlock : MonoBehaviour
     private Rigidbody rb = null;
 
     public Vector3 moving, latestPos;
+    //public int selectBlock;
 
     private int num=0;
 

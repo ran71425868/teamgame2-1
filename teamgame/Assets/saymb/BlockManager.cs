@@ -57,10 +57,13 @@ public class BlockManager : SingletonMonoBehaviour<BlockManager>
 
 
         // ˆê”Ô‰º‚ª‘¶Ý‚µ‚½‚ç
-        if (blocks.Count > 0)
-        {
-            blocks[blocks.Count - 1].focusFlag = true;
-        }
+        //if (block.selectNumber == select)
+        //{
+        //    if (blocks.Count > 0)
+        //    {
+        //        blocks[blocks.Count - 1].focusFlag = true;
+        //    }
+        //}
 
         return block;
     }

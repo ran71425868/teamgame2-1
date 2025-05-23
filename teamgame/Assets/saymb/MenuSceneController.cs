@@ -70,6 +70,9 @@ public class MenuSceneController : MonoBehaviour
     [SerializeField] private GameObject clayObj = null;
     [SerializeField] private GameObject clayParent = null;
 
+    //int selectNumber = 1;
+    //int select = 1;
+
 
     // Start is called before the first frame update
     void Start()
@@ -108,8 +111,16 @@ public class MenuSceneController : MonoBehaviour
         GameObject instanceObj = GameObject.Instantiate(obj, Parent.transform);
         var block = instanceObj.GetComponent<MoveBlock>();
 
-        // 作成したブロックを動かせるようにフラグを立てておく
-        block.focusFlag = true;
+        //block.selectBlock = selectNumber;
+        //selectNumber++;
+        //select++;
+
+        //if(selectNumber==select)
+        //{
+            // 作成したブロックを動かせるようにフラグを立てておく
+            block.focusFlag = true;
+        //}
+        
         BlockManager.Instance.Add(block);
 
         instanceObj.transform.position = Vector3.one;
