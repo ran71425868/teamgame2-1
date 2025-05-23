@@ -62,6 +62,13 @@ public class MovementInput : MonoBehaviour
     private Transform targetTransform;//ターゲット
     private NavMeshAgent m_Agent;//自動経路探索
 
+    //西田　ジャンプ制御用
+    [Header("ジャンプ設定")]
+    public float jumpHeight = 2.0f;
+    public float jumpDuration = 0.5f;
+    private bool isJumping = false;
+
+
     // 初期化処理
     void Start()
     {
@@ -100,7 +107,7 @@ public class MovementInput : MonoBehaviour
     // 毎フレーム呼ばれる
     void Update()
     {
-        if (targetTransform != null)
+        if (targetTransform != null && !isJumping)//西田　&& !isJumping
         {
             m_Agent.SetDestination(targetTransform.position);
 
@@ -116,22 +123,36 @@ public class MovementInput : MonoBehaviour
         //InputMagnitude();// 入力を取得して移動処理へ
 
         // 接地判定と重力処理
-        isGrounded = controller.isGrounded;
+        //isGrounded = controller.isGrounded;//   西田　グラビティ削除
+        //if (isGrounded)
+        //{
+        //    verticalVel -= 0;// 接地しているなら垂直速度は変化なし
+        //}
+        //else
+        //{
+        //    verticalVel -= 1;// 落下中なら重力を加える
+        //}
         if (isGrounded)
         {
-            verticalVel -= 0;// 接地しているなら垂直速度は変化なし
-        }
-        else
-        {
-            verticalVel -= 1;// 落下中なら重力を加える
+            verticalVel -= 1;// 接地しているなら垂直速度は変化なし
         }
 
-        // 垂直方向の移動（重力影響）
-        //moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
-        //controller.Move(moveVector);// 移動適用
+            // 垂直方向の移動（重力影響）
+            //moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
+            //controller.Move(moveVector);// 移動適用
 
     }
-
+    //西田　下のをここに移動
+    private void RotateTowards(Vector3 target)
+    {
+        Vector3 direcction = (target - transform.position).normalized;
+        direcction.y = 0;
+        if (direcction.magnitude >= 0.1f)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direcction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, desiredRotationSpeed);
+        }
+    }
     // プレイヤーの移動と回転処理
     //void PlayerMoveAndRotation()
     //{
@@ -184,15 +205,54 @@ public class MovementInput : MonoBehaviour
     public void RotateToCamera(Transform t)
     {
 
-        var camera = Camera.main;
+       //var camera = Camera.main;　//西田　コメントアウト
         var forward = cam.transform.forward;
-        var right = cam.transform.right;
+        //var right = cam.transform.right;
 
         desiredMoveDirection = forward;
 
         t.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(desiredMoveDirection), desiredRotationSpeed);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("JumpPad") && !isJumping)
+        {
+            Transform jumpTarget = other.transform; // ジャンプ台のTransformから方向と位置を取得
+            StartCoroutine(JumpOverObstacle(jumpTarget));
+        }
+    }
+    //西田 jumpOverObstacle　追加
+    private IEnumerator JumpOverObstacle(Transform jumpPad)
+    {
+        isJumping = true;
+        m_Agent.enabled = false;
 
+        Vector3 startPos = transform.position;
+        Vector3 endPos = jumpPad.position + jumpPad.forward * 5f; // 飛び先はジャンプ台の前方5メートル
+
+        float elapsed = 0f;
+
+        while (elapsed < jumpDuration)
+        {
+            float t = elapsed / jumpDuration;
+            float height = Mathf.Sin(Mathf.PI * t) * jumpHeight;
+            transform.position = Vector3.Lerp(startPos, endPos, t) + Vector3.up * height;
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = endPos;
+        m_Agent.enabled = true;
+
+        // 目的地に戻す（必要があれば）
+        if (targetTransform != null)
+        {
+            m_Agent.SetDestination(targetTransform.position);
+        }
+
+        isJumping = false;
+    }
     //// 入力の大きさに応じてアニメーション制御と移動処理を実行
     //void InputMagnitude()
     //{
@@ -222,14 +282,15 @@ public class MovementInput : MonoBehaviour
     //    }
     //}
 
-    private void RotateTowards(Vector3 target)
-    {
-        Vector3 direcction = (target - transform.position).normalized;
-        direcction.y = 0;
-        if (direcction.magnitude >= 0.1f)
-        {
-            Quaternion lookRotation = Quaternion.LookRotation(direcction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, desiredRotationSpeed);
-        }
-    }
+    //西田　上に位置変更
+    //private void RotateTowards(Vector3 target)
+    //{
+    //    Vector3 direcction = (target - transform.position).normalized;
+    //    direcction.y = 0;
+    //    if (direcction.magnitude >= 0.1f)
+    //    {
+    //        Quaternion lookRotation = Quaternion.LookRotation(direcction);
+    //        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, desiredRotationSpeed);
+    //    }
+    //}
 }
