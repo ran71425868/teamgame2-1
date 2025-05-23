@@ -64,4 +64,9 @@ public class BlockManager : SingletonMonoBehaviour<BlockManager>
 
         return block;
     }
+
+    public int GetListCount()
+    {
+        return blocks.Count;
+    }
 }
