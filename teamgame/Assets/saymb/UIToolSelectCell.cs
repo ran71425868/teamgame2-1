@@ -45,6 +45,7 @@ public class UIToolSelectCell : MonoBehaviour
     {
         btn.onClick.AddListener(() => {
             OnButtonClick?.Invoke(toolType);
+            if(EToolType.Back != toolType&&EToolType.Reset!=toolType)
             this.btn.interactable = false;
         });
     }
