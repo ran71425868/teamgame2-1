@@ -2,8 +2,10 @@ using OpenCover.Framework.Model;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 /// <summary>
@@ -17,11 +19,15 @@ public class MenuSceneController : MonoBehaviour
 
     //[SerializeField] extern public MoveBlock MovementControll();
 
-    [SerializeField] private GameObject noneObj = null;
-    [SerializeField] private GameObject noneParent = null;
+    [SerializeField] private GameObject scaffoldObj = null;
+    [SerializeField] private GameObject scaffoldParent = null;
 
     [SerializeField] private GameObject shipObj=null;
     [SerializeField] private GameObject shipParent=null;
+
+    [SerializeField] private GameObject starObj = null;
+    [SerializeField] private GameObject starParent = null;
+
 
     // int[] hairetu = new int[4] { 1, 2, 3, 4 };
 
@@ -29,6 +35,9 @@ public class MenuSceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+
+
         foreach (var cell in toolSelectCells)
         {
             cell.SetButtonClickCallback(OnClickedToolSelectCell);
@@ -36,6 +45,9 @@ public class MenuSceneController : MonoBehaviour
 
 
     }
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -64,66 +76,81 @@ public class MenuSceneController : MonoBehaviour
 
         switch (toolType)
         {
-            case EToolType.None:
-            
-
-                GameObject instanceObj = GameObject.Instantiate(this.noneObj, this.noneParent.transform);
-                var block = instanceObj.GetComponent<MoveBlock>();
-                BlockManager.Instance.blocks.Add(block);
-                instanceObj.transform.position = Vector3.one;
-
-                if (!SceneManager.GetSceneByName("Smap").IsValid())
+            case EToolType.Scaffold:
                 {
-                    Debug.Log("Smapシーンないので生成する");
-                    SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+                    // ブロックを作成する
+                    GameObject instanceObj = GameObject.Instantiate(this.scaffoldObj, this.scaffoldParent.transform);
+                    var block = instanceObj.GetComponent<MoveBlock>();
+                    // 作成したブロックを動かせるようにフラグを立てておく
+                    block.focusFlag = true;
+                    BlockManager.Instance.Add(block);
+
+                    instanceObj.transform.position = Vector3.one;
+
+                    if (!SceneManager.GetSceneByName("Smap").IsValid())
+                    {
+                        Debug.Log("Smapシーンないので生成する");
+                        SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+                    }
+                    var getBlock = BlockManager.Instance.GetBlockByNum(0);
                 }
-                var getBlock =  BlockManager.Instance.GetBlockByNum(0);
-
-
-               
-                //BlockManager.Instance.blocks.RemoveAt(1);
-                //BlockManager.Instance.blocks.Remove(block);
-
 
                 break;
 
             case EToolType.Ship:
 
-
-                instanceObj = GameObject.Instantiate(this.shipObj, this.shipParent.transform);
-                block = instanceObj.GetComponent<MoveBlock>();
-                BlockManager.Instance.blocks.Add(block);
-                instanceObj.transform.position = Vector3.one;
-
-                if (!SceneManager.GetSceneByName("Smap").IsValid())
                 {
-                    Debug.Log("Smapシーンないので生成する");
-                    SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+                    GameObject instanceObj = GameObject.Instantiate(this.shipObj, this.shipParent.transform);
+                    var block = instanceObj.GetComponent<MoveBlock>();
+
+                    // 作成したブロックを動かせるようにフラグを立てておく
+                    block.focusFlag = true;
+                    BlockManager.Instance.Add(block);
+
+                    instanceObj.transform.position = Vector3.one;
+
+                    if (!SceneManager.GetSceneByName("Smap").IsValid())
+                    {
+                        Debug.Log("Smapシーンないので生成する");
+                        SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+                    }
+
+                    var getBlock = BlockManager.Instance.GetBlockByNum(1);
+                }
+                
+                break;
+
+            case EToolType.Star:
+                {
+                    GameObject instanceObj = GameObject.Instantiate(this.starObj, this.starParent.transform);
+                    var block = instanceObj.GetComponent<MoveBlock>();
+
+                    // 作成したブロックを動かせるようにフラグを立てておく
+                    block.focusFlag = true;
+                    BlockManager.Instance.Add(block);
+
+                    instanceObj.transform.position = Vector3.one;
+
+                    if (!SceneManager.GetSceneByName("Smap").IsValid())
+                    {
+                        Debug.Log("Smapシーンないので生成する");
+                        SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+                    }
+
+                    var getBlock = BlockManager.Instance.GetBlockByNum(2);
                 }
 
-                getBlock = BlockManager.Instance.GetBlockByNum(1);
-
-                //if (BlockManager.Instance.blocks.Count == 2)
-                //{
-                //    instanceObj.SetActive(false);
-                //}
-
-                //BlockManager.Instance.blocks.RemoveAt(1);
-
+                //ResetButton();
 
                 break;
 
-            case EToolType.Reset:
+            case EToolType.Back:
+                {
+                    var block = BlockManager.Instance.Removed();
 
-                ResetButton();
-
-                break;
-
-
-            case EToolType.back:
-
-                //BlockManager.Instance.blocks.RemoveAt(1);
-                //BlockManager.Instance.blocks.Remove(block);
+                    Destroy(block.gameObject);
+                }
+               
                 break;
 
         }
