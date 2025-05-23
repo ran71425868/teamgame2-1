@@ -6,10 +6,25 @@ using UnityEngine.UI;
 public enum EToolType
 {
 
-    None = 0,
+    Scaffold = 0,
     Ship = 1,
-    Reset = 2,
-    back = 3,
+    Star = 2,
+    Beak = 3,
+    TriangularFusion = 4,
+    Rocket = 5,
+    BeatenUp = 6,
+    Pigeon = 7,
+    Triangle = 8,
+    Snake = 9,
+    Slope = 10,
+    Screw = 11,
+    Sasuke = 12,
+    Outlet = 13,
+    Escargot = 14,
+    Curve = 15,
+    Clay = 16,
+    Back = 17,
+    Reset = 18,
 }
 
 public class UIToolSelectCell : MonoBehaviour
