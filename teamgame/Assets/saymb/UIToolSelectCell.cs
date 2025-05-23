@@ -9,20 +9,23 @@ public enum EToolType
     Scaffold = 0,
     Ship = 1,
     Star = 2,
-    //Beak = 3,
-    //TriangularFusion = 4,
-    //Rocket = 5,
-    //BeatenUp = 6,
-    //Pigeon = 7,
-    //Triangle = 8,
-    //Snake = 9,
-    //Screw = 10,
-    //Sasuke = 11,
+    Beak = 3,
+    TriangularFusion = 4,
+    Rocket = 5,
+    BeatenUp = 6,
+    Pigeon = 7,
+    Triangle = 8,
+    Snake = 9,
+    Slope = 10,
+    Screw = 11,
+    Sasuke = 12,
+    Outlet = 13,
+    Escargot = 14,
+    curve = 15,
 
 
 
-
-    Back = 3,
+    //Back = 3,
 }
 
 public class UIToolSelectCell : MonoBehaviour
