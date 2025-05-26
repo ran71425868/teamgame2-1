@@ -75,7 +75,11 @@ NavMeshProjectSettings:
     agentTypeID: 0
     agentRadius: 0.5
     agentHeight: 2
+<<<<<<< Updated upstream
     agentSlope: 60
+=======
+    agentSlope: 45
+>>>>>>> Stashed changes
     agentClimb: 0.75
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
@@ -89,6 +93,7 @@ NavMeshProjectSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
+<<<<<<< Updated upstream
   - serializedVersion: 3
     agentTypeID: -1923039037
     agentRadius: 0.5
@@ -107,6 +112,8 @@ NavMeshProjectSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
+=======
+>>>>>>> Stashed changes
   m_SettingNames:
   - Humanoid
   - New Agent
