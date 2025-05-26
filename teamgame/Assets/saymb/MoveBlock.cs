@@ -31,8 +31,6 @@ public class MoveBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         if (selectBlock == menuSceneController.select)
             MovementControll();
     }

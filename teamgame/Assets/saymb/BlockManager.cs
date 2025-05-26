@@ -47,13 +47,13 @@ public class BlockManager : SingletonMonoBehaviour<BlockManager>
     /// 取り外したブロックを戻り値として受け取る
     /// </summary>
     /// <returns></returns>
-    public MoveBlock Removed()
+    public MoveBlock Removed(int select,int selectNumber)
     {
-        MoveBlock block = blocks[blocks.Count - 1];
+        MoveBlock block = blocks[select - 1];
 
         // 一番下を外す
-        int count = blocks.Count;
-        blocks.RemoveAt(count - 1);
+        //int count = blocks.Count;
+        blocks.RemoveAt(select - 1);
 
 
         // 一番下が存在したら
@@ -64,7 +64,11 @@ public class BlockManager : SingletonMonoBehaviour<BlockManager>
         //        blocks[blocks.Count - 1].focusFlag = true;
         //    }
         //}
-
+       
+        for(int i=selectNumber-2;i>=select-1;i--)
+        {
+            blocks[i].selectBlock--;
+        }
         return block;
     }
 

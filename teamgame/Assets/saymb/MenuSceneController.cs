@@ -70,7 +70,7 @@ public class MenuSceneController : MonoBehaviour
     [SerializeField] private GameObject clayObj = null;
     [SerializeField] private GameObject clayParent = null;
 
-    public int selectNumber = 1;
+    private int selectNumber = 1;
     public int select = 1;
 
 
@@ -290,7 +290,8 @@ public class MenuSceneController : MonoBehaviour
 
             case EToolType.Back:
                 {
-                    var block = BlockManager.Instance.Removed();
+                    selectNumber--;
+                    var block = BlockManager.Instance.Removed(select,selectNumber);
 
                     Destroy(block.gameObject);
                 }
