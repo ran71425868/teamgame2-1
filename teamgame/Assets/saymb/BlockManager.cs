@@ -35,9 +35,9 @@ public class BlockManager : SingletonMonoBehaviour<BlockManager>
     public void Add(MoveBlock block) {
 
         // 現在取り付けられている奴らの動かせるフラグを全て下ろす
-        foreach (var b in blocks) { 
-            b.focusFlag = false;
-        }
+        //foreach (var b in blocks) { 
+        //    b.focusFlag = false;
+        //}
 
         blocks.Add(block);
     }
