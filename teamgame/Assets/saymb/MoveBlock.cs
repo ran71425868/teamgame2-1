@@ -31,19 +31,7 @@ public class MoveBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-            menuSceneController.select--;
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-            menuSceneController.select++;
 
-        if (menuSceneController.select<=0)
-        {
-            menuSceneController.select = 1;
-        }
-        else if (menuSceneController.select >= menuSceneController.selectNumber)
-        {
-            menuSceneController.select = menuSceneController.selectNumber-1;
-        }
 
         if (selectBlock == menuSceneController.select)
             MovementControll();

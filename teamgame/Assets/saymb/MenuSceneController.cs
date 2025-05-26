@@ -88,6 +88,28 @@ public class MenuSceneController : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            this.select--;
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            this.select++;
+        }
+
+        if (this.select <= 1)
+        {
+            this.select = 1;
+        }
+        else if (this.select >= this.selectNumber - 1)
+        {
+            this.select = this.selectNumber - 1;
+        }
+
+    }
+
     /// <summary>
     /// ボタンリセット
     /// </summary>
