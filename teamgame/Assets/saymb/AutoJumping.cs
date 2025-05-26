@@ -4,7 +4,7 @@ using UnityEngine;
 public class AutoJumping : MonoBehaviour
 {
     // ジャンプする力（上向きの力）を定義
-    [SerializeField] private float jumpForce = 20.0f;
+    [SerializeField] private float jumpForce = 40.0f;
     /// <summary>
     /// Colliderが他のトリガーに入った時に呼び出される
     /// </summary>

@@ -64,8 +64,8 @@ public class MovementInput : MonoBehaviour
 
     //西田　ジャンプ制御用
     [Header("ジャンプ設定")]
-    public float jumpHeight = 2.0f;
-    public float jumpDuration = 0.5f;
+    public float jumpHeight = 6.0f;
+    public float jumpDuration = 0.8f;
     private bool isJumping = false;
 
 
@@ -118,6 +118,7 @@ public class MovementInput : MonoBehaviour
             float speedpercent = m_Agent.velocity.magnitude / m_Agent.speed;
             anim.SetFloat("Blend", speedpercent, StartAnimTime, Time.deltaTime);
         }
+
 
 
         //InputMagnitude();// 入力を取得して移動処理へ
@@ -231,14 +232,15 @@ public class MovementInput : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(0, jumpForce, 0, ForceMode.Impulse);
 
         Vector3 startPos = transform.position;
-        Vector3 endPos = jumpPad.position + jumpPad.forward * 5f; // 飛び先はジャンプ台の前方5メートル
-
+        //Vector3 endPos = jumpPad.position + jumpPad.forward * 5f; // 飛び先はジャンプ台の前方5メートル
+   
+        Vector3 endPos = transform.position + transform.forward * 5f; // 飛び先はジャンプ台の前方5メートル
         float elapsed = 0f;
 
         while (elapsed < jumpDuration)
         {
             float t = elapsed / jumpDuration;
-            float height = Mathf.Sin(Mathf.PI * t) * jumpHeight;
+            float height = Mathf.Sin(Mathf.PI * t) * jumpHeight * 2;
             transform.position = Vector3.Lerp(startPos, endPos, t) + Vector3.up * height;
 
             elapsed += Time.deltaTime;
