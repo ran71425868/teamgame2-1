@@ -28,9 +28,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133595531904201368}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4793314, y: 0.5198475, z: 0.5198475, w: -0.4793314}
+  m_LocalRotation: {x: 0.47933173, y: 0.5198472, z: 0.5198472, w: -0.47933173}
   m_LocalPosition: {x: 11.354757, y: 0.93, z: 0.9}
-  m_LocalScale: {x: 100, y: 100, z: 400}
+  m_LocalScale: {x: 100, y: 50, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,7 +102,7 @@ MonoBehaviour:
   speed: 3
   moving: {x: 0, y: 0, z: 0}
   latestPos: {x: 0, y: 0, z: 0}
-  focusFlag: 0
+  selectBlock: 0
 --- !u!64 &6917522374634271561
 MeshCollider:
   m_ObjectHideFlags: 0
