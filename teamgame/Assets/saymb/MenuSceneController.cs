@@ -61,8 +61,8 @@ public class MenuSceneController : MonoBehaviour
     [SerializeField] private GameObject outletObj = null;
     [SerializeField] private GameObject outletParent = null;
 
-    [SerializeField] private GameObject escargotObj = null;
-    [SerializeField] private GameObject escargotParent = null;
+    //[SerializeField] private GameObject escargotObj = null;
+    //[SerializeField] private GameObject escargotParent = null;
 
     [SerializeField] private GameObject curveObj = null;
     [SerializeField] private GameObject curveParent = null;
@@ -149,10 +149,10 @@ public class MenuSceneController : MonoBehaviour
 
         instanceObj.transform.position = Vector3.one;
 
-        if (!SceneManager.GetSceneByName("Smap").IsValid())
+        if (!SceneManager.GetSceneByName("Stage_1").IsValid())
         {
-            Debug.Log("Smapシーンないので生成する");
-            SceneManager.LoadScene("Smap", LoadSceneMode.Additive);
+            Debug.Log("Stage_1シーンないので生成する");
+            SceneManager.LoadScene("Stage_1", LoadSceneMode.Additive);
         }
     }
 
@@ -260,12 +260,12 @@ public class MenuSceneController : MonoBehaviour
 
                 break;
 
-            case EToolType.Escargot:
-                {
-                    CreateBlock(escargotObj, escargotParent);
-                }
+            //case EToolType.Escargot:
+            //    {
+            //        CreateBlock(escargotObj, escargotParent);
+            //    }
 
-                break;
+            //    break;
 
             case EToolType.Curve:
                 {
@@ -280,14 +280,6 @@ public class MenuSceneController : MonoBehaviour
 
                 break;
 
-            case EToolType.Reset:
-                {
-                    ResetButton();
-                    //var block = BlockManager.Instance.Removed();
-                    //Destroy(block.gameObject);
-                }
-                break;
-
             case EToolType.Back:
                 {
                     selectNumber--;
@@ -296,6 +288,14 @@ public class MenuSceneController : MonoBehaviour
                     Destroy(block.gameObject);
                 }
                
+                break;
+
+            case EToolType.Reset:
+                {
+                    ResetButton();
+                    //var block = BlockManager.Instance.Removed();
+                    //Destroy(block.gameObject);
+                }
                 break;
 
         }

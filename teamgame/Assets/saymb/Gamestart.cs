@@ -9,6 +9,6 @@ public class Gamestart : MonoBehaviour
     // Start is called before the first frame update
     public void ClickstartButton()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("StageSelect");
     }
 }
