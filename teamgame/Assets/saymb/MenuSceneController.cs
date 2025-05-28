@@ -73,7 +73,6 @@ public class MenuSceneController : MonoBehaviour
     private int selectNumber = 1;
     public int select = 1;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -139,21 +138,21 @@ public class MenuSceneController : MonoBehaviour
 
 
         block.SetSceneController(this);
-        ////if(selectNumber==select)
-        ////{
-        //// 作成したブロックを動かせるようにフラグを立てておく
+        //if(selectNumber==select)
+        //{
+        // 作成したブロックを動かせるようにフラグを立てておく
         //block.focusFlag = true;
-        ////}
+        //}
         
         BlockManager.Instance.Add(block);
 
         instanceObj.transform.position = Vector3.one;
-
-        if (!SceneManager.GetSceneByName("Stage_1").IsValid())
-        {
-            Debug.Log("Stage_1シーンないので生成する");
-            SceneManager.LoadScene("Stage_1", LoadSceneMode.Additive);
-        }
+        //if (!SceneManager.GetSceneByName("Stage_1").IsValid())
+        // {
+        //     Debug.Log("Stage_1シーンないので生成する");
+        //     SceneManager.LoadScene("Stage_1", LoadSceneMode.Additive);
+        // }
+        // break;
     }
 
     // ツールセレクトセルが押された際の処理

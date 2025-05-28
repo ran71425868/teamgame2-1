@@ -28,8 +28,7 @@ public class StageSelect : MonoBehaviour
                 break;
 
         }
-
-        
-
     }
+
+    
 }
