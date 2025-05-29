@@ -5,23 +5,50 @@ using Unity.AI.Navigation;
 
 public class NavMeshExample : MonoBehaviour
 {
+    /// <summary>
+    /// NavMeshSurface コンポーネント
+    /// </summary>
+    private NavMeshSurface surface;
+
    void Start()
     {
-        NavMeshSurface surface;
-        if(TryGetComponent<NavMeshSurface>(out surface))
-        {
-            Debug.Log("surface取れた");
+        this.surface = GetComponent<NavMeshSurface>();
+        //NavMeshSurface surface;
+        //if(TryGetComponent<NavMeshSurface>(out surface))
+        //{
+        //    Debug.Log("surface取れた");
 
-            // NavMeshを動的に再生成
-            surface.BuildNavMesh();
-        }
-        else
-        {
-            Debug.Log("surfaceとれん");
-        }
+        //    // NavMeshを動的に再生成
+        //    surface.BuildNavMesh();
+        //}
+        //else
+        //{
+        //    Debug.Log("surfaceとれん");
+        //}
     }
 
     void Update()
     {
+
+        
+
+        //NavMeshSurface surface;
+        //if (TryGetComponent<NavMeshSurface>(out surface))
+        //{
+        //    Debug.Log("surface取れた");
+
+        //    // NavMeshを動的に再生成
+        //    this.surface.BuildNavMesh();
+        //}
+        //else
+        //{
+        //    Debug.Log("surfaceとれん");
+        //}
+    }
+
+    public void ClickstartButton()
+    {
+        // NavMeshを動的に再生成
+        //this.surface.BuildNavMesh();
     }
 }
