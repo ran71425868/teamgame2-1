@@ -15,7 +15,7 @@ public class StageSelect : MonoBehaviour
         switch (stageselect)
         {
             case 0:
-                SceneManager.LoadScene("Stage_1");
+                SceneManager.LoadScene("Stage1_1");
                 break;
 
             case 1:
@@ -24,7 +24,12 @@ public class StageSelect : MonoBehaviour
                 break;
             case 2:
                 
-                SceneManager.LoadScene("Title");
+                SceneManager.LoadScene("Stage_3");
+                break;
+
+            case 3:
+
+                SceneManager.LoadScene("Tutorial_Menu");
                 break;
 
         }

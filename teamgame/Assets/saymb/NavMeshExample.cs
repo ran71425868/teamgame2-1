@@ -35,19 +35,18 @@ public class NavMeshExample : MonoBehaviour
 
     void Update()
     {
-        NavMeshSurface surface;
-        if (TryGetComponent<NavMeshSurface>(out surface))
-        {
-            Debug.Log("surfaceæ‚ê‚½");
+        //NavMeshSurface surface;
+        //if (TryGetComponent<NavMeshSurface>(out surface))
+        //{
+        //    Debug.Log("surfaceæ‚ê‚½");
 
-            // NavMesh‚ğ“®“I‚ÉÄ¶¬
-            surface.BuildNavMesh();
-        }
-        else
-        {
-            Debug.Log("surface‚Æ‚ê‚ñ");
-            //}
-        }
-
+        //    //NavMesh‚ğ“®“I‚ÉÄ¶¬
+        //    surface.BuildNavMesh();
+        //}
+        //else
+        //{
+        //    Debug.Log("surface‚Æ‚ê‚ñ");
+        //}
     }
+
 }
