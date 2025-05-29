@@ -13,9 +13,8 @@ public class MoveBlock : MonoBehaviour
 
     private MenuSceneController menuSceneController;
     public void SetSceneController(MenuSceneController controller) => menuSceneController = controller;
-    
 
-    private int num=0;
+    private int num = 0;
 
 
     // true...“®‚©‚¹‚é
@@ -37,22 +36,20 @@ public class MoveBlock : MonoBehaviour
 
     void MovementControll()
     {
-        //var block = BlockManager.Instance.GetBlockByID(5);
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)&&num>0)
+        {
+            num = 0;
+        }
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             num = 1;
         }
-        else if(Input.GetKeyDown(KeyCode.Space))
-        {
-            num = 0;
-
-        }
+        
 
         switch (num)
         {
             case 0:
-                moving = new Vector3(0, Input.GetAxisRaw("Vertical"), 0);
+                moving = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
                 moving.Normalize();
                 moving = moving * speed;
 

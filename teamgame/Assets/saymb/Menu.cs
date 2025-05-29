@@ -10,8 +10,6 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject pausePanel; 
     [SerializeField] private Button resumeButton;
 
-    [SerializeField] private Button itemsButton;
-
     // Start is called before the first frame update
     private void Start()
     {

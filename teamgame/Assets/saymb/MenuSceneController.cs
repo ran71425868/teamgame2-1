@@ -157,7 +157,7 @@ public class MenuSceneController : MonoBehaviour
 
     // ツールセレクトセルが押された際の処理
     private void OnClickedToolSelectCell(EToolType toolType) {
-
+        Debug.Log($"Click:{toolType}");
         switch (toolType)
         {
             case EToolType.Scaffold:
@@ -292,8 +292,6 @@ public class MenuSceneController : MonoBehaviour
             case EToolType.Reset:
                 {
                     ResetButton();
-                    //var block = BlockManager.Instance.Removed();
-                    //Destroy(block.gameObject);
                 }
                 break;
 

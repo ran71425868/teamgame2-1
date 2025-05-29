@@ -10,19 +10,19 @@ public class BlockManager : SingletonMonoBehaviour<BlockManager>
         
     }
 
-    public MoveBlock GetBlockByNum(int num)
-    {
-        // シーン内のすべてのブロックを取得
-        //Block[] allBlocks = FindObjectsOfType<Block>();
-        //blocks.AddRange(allBlocks);
+    //public MoveBlock GetBlockByNum(int num)
+    //{
+    //    // シーン内のすべてのブロックを取得
+    //    //Block[] allBlocks = FindObjectsOfType<Block>();
+    //    //blocks.AddRange(allBlocks);
 
 
-        // IDでブロックを検索
-        return this.blocks[num];
+    //    // IDでブロックを検索
+    //    return this.blocks[num];
 
        
-        //return this.blocks.Find(block => block.blockID == id);
-    }
+    //    //return this.blocks.Find(block => block.blockID == id);
+    //}
 
     //public void DeactivateAllBlocks()
     //{
