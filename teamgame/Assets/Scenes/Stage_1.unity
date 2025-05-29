@@ -10200,7 +10200,6 @@ MonoBehaviour:
   pauseButton: {fileID: 668265153}
   pausePanel: {fileID: 1071516752}
   resumeButton: {fileID: 1198332084}
-  itemsButton: {fileID: 0}
 --- !u!114 &1829675914
 MonoBehaviour:
   m_ObjectHideFlags: 0
