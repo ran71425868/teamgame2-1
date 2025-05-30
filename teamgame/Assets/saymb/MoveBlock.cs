@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static UnityEngine.GraphicsBuffer;
 public class MoveBlock : MonoBehaviour
 {
     [SerializeField, Header("速度")]
@@ -20,18 +20,33 @@ public class MoveBlock : MonoBehaviour
     // true...動かせる
     //public bool focusFlag = false;
 
+    public Material outlineMaterial;
+    private GameObject outlineObject;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         //speed = 5;
+
+        // アウトライン用のオブジェクト作成
+        outlineObject = Instantiate(this.gameObject, transform.position, transform.rotation, transform);
+       /* DestroyImmediate(outlineObject.GetComponent<OutlineToggle>());*/ // 自身のスクリプトは削除
+        outlineObject.transform.localScale = outlineObject.transform.localScale *0.01f;
+        outlineObject.GetComponent<Renderer>().material = outlineMaterial;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (selectBlock == menuSceneController.select)
+        {
             MovementControll();
+            outlineObject.SetActive(true);
+        }
+        else
+            outlineObject.SetActive(false);
     }
 
     void MovementControll()

@@ -125,3 +125,4 @@ MonoBehaviour:
   moving: {x: 0, y: 0, z: 0}
   latestPos: {x: 0, y: 0, z: 0}
   selectBlock: 0
+  outlineMaterial: {fileID: 2100000, guid: d40564518082be94fa40881e547f086b, type: 2}
