@@ -6,8 +6,8 @@ using UnityEngine.SocialPlatforms;
 
 public class CameraMover : MonoBehaviour
 {
-    // WASD：前後左右の移動
-    // QE：上昇・降下
+    // IJKL：前後左右の移動
+    // OU：上昇・降下
     // 右ドラッグ：カメラの回転
     // 左ドラッグ：前後左右の移動
     // スペース：カメラ操作の有効・無効の切り替え
@@ -62,16 +62,16 @@ public class CameraMover : MonoBehaviour
     //カメラ操作の有効無効
     public void CamControlIsActive()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _cameraMoveActive = !_cameraMoveActive;
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    _cameraMoveActive = !_cameraMoveActive;
 
-            if (_uiMessageActiv == false)
-            {
-                StartCoroutine(DisplayUiMessage());
-            }
-            Debug.Log("CamControl : " + _cameraMoveActive);
-        }
+        //    if (_uiMessageActiv == false)
+        //    {
+        //        StartCoroutine(DisplayUiMessage());
+        //    }
+        //    Debug.Log("CamControl : " + _cameraMoveActive);
+        //}
     }
 
     //回転を初期状態にする
