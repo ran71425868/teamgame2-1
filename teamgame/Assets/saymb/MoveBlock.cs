@@ -15,13 +15,13 @@ public class MoveBlock : MonoBehaviour
     public void SetSceneController(MenuSceneController controller) => menuSceneController = controller;
 
     private int num = 0;
-
+    [SerializeField] private Material selectedMaterial;
+    [SerializeField] private Material defaultMaterial;
 
     // true...動かせる
     //public bool focusFlag = false;
 
-    public Material outlineMaterial;
-    private GameObject outlineObject;
+
 
 
     // Start is called before the first frame update
@@ -30,11 +30,7 @@ public class MoveBlock : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         //speed = 5;
 
-        // アウトライン用のオブジェクト作成
-        outlineObject = Instantiate(this.gameObject, transform.position, transform.rotation, transform);
-       /* DestroyImmediate(outlineObject.GetComponent<OutlineToggle>());*/ // 自身のスクリプトは削除
-        outlineObject.transform.localScale = outlineObject.transform.localScale *0.01f;
-        outlineObject.GetComponent<Renderer>().material = outlineMaterial;
+       
     }
 
     // Update is called once per frame
@@ -43,10 +39,12 @@ public class MoveBlock : MonoBehaviour
         if (selectBlock == menuSceneController.select)
         {
             MovementControll();
-            outlineObject.SetActive(true);
+            GetComponent<Renderer>().material = selectedMaterial;
         }
         else
-            outlineObject.SetActive(false);
+        {
+            GetComponent<Renderer>().material = defaultMaterial;
+        }
     }
 
     void MovementControll()
