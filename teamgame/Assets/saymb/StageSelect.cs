@@ -29,7 +29,7 @@ public class StageSelect : MonoBehaviour
 
             case 3:
 
-                SceneManager.LoadScene("Tutorial_Menu");
+                SceneManager.LoadScene("Tutorial");
                 break;
 
         }
