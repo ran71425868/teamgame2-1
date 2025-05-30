@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static UnityEngine.GraphicsBuffer;
 public class MoveBlock : MonoBehaviour
 {
     [SerializeField, Header("‘¬“x")]
@@ -15,23 +15,36 @@ public class MoveBlock : MonoBehaviour
     public void SetSceneController(MenuSceneController controller) => menuSceneController = controller;
 
     private int num = 0;
-
+    [SerializeField] private Material selectedMaterial;
+    [SerializeField] private Material defaultMaterial;
 
     // true...“®‚©‚¹‚é
     //public bool focusFlag = false;
+
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         //speed = 5;
+
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         if (selectBlock == menuSceneController.select)
+        {
             MovementControll();
+            GetComponent<Renderer>().material = selectedMaterial;
+        }
+        else
+        {
+            GetComponent<Renderer>().material = defaultMaterial;
+        }
     }
 
     void MovementControll()

@@ -103,6 +103,8 @@ MonoBehaviour:
   moving: {x: 0, y: 0, z: 0}
   latestPos: {x: 0, y: 0, z: 0}
   selectBlock: 0
+  selectedMaterial: {fileID: 2100000, guid: d40564518082be94fa40881e547f086b, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: b4d04ca24f55ecf43af0b6c953c4a679, type: 2}
 --- !u!64 &1646502231370028358
 MeshCollider:
   m_ObjectHideFlags: 0
