@@ -68,6 +68,12 @@ public class MovementInput : MonoBehaviour
     public float jumpDuration = 0.8f;
     private bool isJumping = false;
 
+    [Header("足音設定")]
+    public AudioClip footstepClip;
+    public float footstepInterval = 0.5f;
+
+    private AudioSource audioSource;
+    private float footstepTimer = 0f;
 
     // 初期化処理
     void Start()
@@ -76,6 +82,7 @@ public class MovementInput : MonoBehaviour
         cam = Camera.main;                                       // メインカメラを取得
         controller = this.GetComponent<CharacterController>();  // CharacterControllerを取得
         m_Agent = GetComponent<NavMeshAgent>();
+        audioSource = GetComponent<AudioSource>();
 
         //"Target"という名前のGameObjectを探してセット
         GameObject targetObject = GameObject.Find("Target");
@@ -119,8 +126,6 @@ public class MovementInput : MonoBehaviour
             anim.SetFloat("Blend", speedpercent, StartAnimTime, Time.deltaTime);
         }
 
-
-
         //InputMagnitude();// 入力を取得して移動処理へ
 
         // 接地判定と重力処理
@@ -138,10 +143,28 @@ public class MovementInput : MonoBehaviour
             verticalVel -= 1;// 接地しているなら垂直速度は変化なし
         }
 
-            // 垂直方向の移動（重力影響）
-            //moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
-            //controller.Move(moveVector);// 移動適用
+        // 垂直方向の移動（重力影響）
+        //moveVector = new Vector3(0, verticalVel * .2f * Time.deltaTime, 0);
+        //controller.Move(moveVector);// 移動適用
 
+
+        // 足音処理（移動中かつ接地中）
+        if (m_Agent.enabled&& m_Agent.remainingDistance > m_Agent.stoppingDistance)
+        {
+            Debug.Log("足音再生！");
+            footstepTimer += Time.deltaTime;
+
+            if (footstepTimer >= footstepInterval && !audioSource.isPlaying)
+            {
+                audioSource.clip = footstepClip;
+                audioSource.Play();
+                footstepTimer = 0f;
+            }
+        }
+        else
+        {
+            footstepTimer = 0f;
+        }
     }
     //西田　下のをここに移動
     private void RotateTowards(Vector3 target)
