@@ -8,7 +8,7 @@ using UnityEditor.SceneManagement;
 public class StageSelect : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int stageselect = 0;
+    [SerializeField] private int stageselect;
 
     public void ClickstartButton()
     {
