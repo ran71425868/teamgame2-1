@@ -15,7 +15,7 @@ public class OutlineToggle : MonoBehaviour
         // アウトライン用のオブジェクト作成
         outlineObject = Instantiate(this.gameObject, transform.position, transform.rotation, transform);
         DestroyImmediate(outlineObject.GetComponent<OutlineToggle>()); // 自身のスクリプトは削除
-        outlineObject.transform.localScale = outlineObject.transform.localScale * 0.01f;
+       outlineObject.transform.localScale = outlineObject.transform.localScale * 0.01f;
         outlineObject.GetComponent<Renderer>().material = outlineMaterial;
     }
 
