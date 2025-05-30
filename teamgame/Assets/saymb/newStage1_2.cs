@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class newStage1_2 : MonoBehaviour
 {
     [SerializeField] private int stagenum;
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player")
+        Debug.Log($"collision{other.gameObject.name}");
+        if (other.gameObject.CompareTag("Player"))
         {
             switch (stagenum)
             {
@@ -25,7 +26,6 @@ public class newStage1_2 : MonoBehaviour
                     SceneManager.LoadScene("Result");
                     break;
             }
-
         }
     }
 }

@@ -11,14 +11,17 @@ public class Tutorial : MonoBehaviour
         switch (Tutorialnum)
         {
             case 0:
-                SceneManager.LoadScene("Tutorial_Camera");
+                SceneManager.LoadScene("Tutorial_Menu");
                 break;
 
             case 1:
 
-                SceneManager.LoadScene("Title");
+                SceneManager.LoadScene("Tutorial_Camera");
                 break;
 
+            case 2:
+                SceneManager.LoadScene("StageSelect");
+                break;
         }
     }
 }

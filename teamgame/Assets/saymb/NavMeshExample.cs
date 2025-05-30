@@ -8,14 +8,16 @@ public class NavMeshExample : MonoBehaviour
     /// <summary>
     /// NavMeshSurface コンポーネント
     /// </summary>
-    //private NavMeshSurface surface;
+    [SerializeField] private NavMeshSurface surface;
 
     void Start()
     {
-        //this.surface = GetComponent<NavMeshSurface>();
+       //this.surface = this.GetComponent<NavMeshSurface>();
+
+        //this.surface = GameObject.FindObjectOfType<NavMeshSurface>();
 
         // NavMeshを動的に再生成
-        //this.surface.BuildNavMesh();
+        this.surface.BuildNavMesh();
 
 
         //NavMeshSurface surface;
@@ -35,18 +37,25 @@ public class NavMeshExample : MonoBehaviour
 
     void Update()
     {
-        NavMeshSurface surface;
-        if (TryGetComponent<NavMeshSurface>(out surface))
-        {
-            Debug.Log("surface取れた");
+        //NavMeshSurface surface;
+        //if (TryGetComponent<NavMeshSurface>(out surface))
+        //{
+        //    Debug.Log("surface取れた");
 
-            //NavMeshを動的に再生成
-            surface.BuildNavMesh();
-        }
-        else
-        {
-            Debug.Log("surfaceとれん");
-        }
+        //    //NavMeshを動的に再生成
+        //    surface.BuildNavMesh();
+        //}
+        //else
+        //{
+        //    Debug.Log("surfaceとれん");
+        //}
     }
 
+    public void ClickStartButton()
+    {
+        // NavMeshを動的に再生成
+        this.surface.BuildNavMesh();
+
+        Debug.Log("ナビメッシュ再生成");
+    }
 }
