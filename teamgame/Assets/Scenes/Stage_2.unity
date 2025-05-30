@@ -6409,7 +6409,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.033333335
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 0b814a5824043a54fb73055a327f16a7, type: 2}
   m_BuildHeightMesh: 0
@@ -8941,6 +8941,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jammo_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3541754002163558908, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 4757836856755875626, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: targetTransform
       value: 
@@ -9909,7 +9913,6 @@ MonoBehaviour:
   pauseButton: {fileID: 592533362}
   pausePanel: {fileID: 220484374}
   resumeButton: {fileID: 1219866784}
-  itemsButton: {fileID: 0}
 --- !u!114 &1408218783
 MonoBehaviour:
   m_ObjectHideFlags: 0
