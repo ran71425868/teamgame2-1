@@ -263,7 +263,7 @@ public class MovementInput : MonoBehaviour
         while (elapsed < jumpDuration)
         {
             float t = elapsed / jumpDuration;
-            float height = Mathf.Sin(Mathf.PI * t) * jumpHeight * 2;
+            float height = Mathf.Sin(Mathf.PI * t) * jumpHeight;
             transform.position = Vector3.Lerp(startPos, endPos, t) + Vector3.up * height;
 
             elapsed += Time.deltaTime;

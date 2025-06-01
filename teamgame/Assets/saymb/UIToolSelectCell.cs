@@ -17,7 +17,7 @@ public enum EToolType
     Triangle = 8,
     Snake = 9,
     Slope = 10,
-    Screw = 11,
+    JumpPad = 11,
     Sasuke = 12,
     Outlet = 13,
     Curve = 14,

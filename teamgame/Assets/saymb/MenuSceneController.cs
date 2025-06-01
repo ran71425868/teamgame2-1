@@ -52,8 +52,8 @@ public class MenuSceneController : MonoBehaviour
     [SerializeField] private GameObject slopeObj = null;
     [SerializeField] private GameObject slopeParent = null;
 
-    [SerializeField] private GameObject screwObj = null;
-    [SerializeField] private GameObject screwParent = null;
+    [SerializeField] private GameObject jumpPadObj = null;
+    [SerializeField] private GameObject jumpPadParent = null;
 
     [SerializeField] private GameObject sasukeObj = null;
     [SerializeField] private GameObject sasukeParent = null;
@@ -251,9 +251,9 @@ public class MenuSceneController : MonoBehaviour
 
                 break;
 
-            case EToolType.Screw:
+            case EToolType.JumpPad:
                 {
-                   CreateBlock(screwObj, screwParent);
+                   CreateBlock(jumpPadObj, jumpPadParent);
                 }
 
                 break;

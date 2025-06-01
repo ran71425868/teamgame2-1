@@ -12,8 +12,10 @@ GameObject:
   - component: {fileID: 8317045433320561442}
   - component: {fileID: 5212877187985265744}
   - component: {fileID: 7259974665233357199}
+  - component: {fileID: -758026491352565803}
   - component: {fileID: 4706760786672296529}
   - component: {fileID: 2023350750808153445}
+  - component: {fileID: 8492881989151890570}
   m_Layer: 0
   m_Name: JumpPad
   m_TagString: Untagged
@@ -100,7 +102,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54fd23368d5bd064180b7a88cd43e6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 30
+  jumpForce: 15
+--- !u!114 &-758026491352565803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165820044980849682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0818f70e3341f44a8fda8f8be74dea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  moving: {x: 0, y: 0, z: 0}
+  latestPos: {x: 0, y: 0, z: 0}
+  selectBlock: 0
+  rotationSpeedQ: {x: 0, y: -90, z: 0}
+  rotationSpeedE: {x: 0, y: 90, z: 0}
+  selectedMaterial: {fileID: 2100000, guid: d40564518082be94fa40881e547f086b, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: b4d04ca24f55ecf43af0b6c953c4a679, type: 2}
 --- !u!65 &4706760786672296529
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -149,7 +171,34 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.033333335
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 6d317b0fd84713f4683417c638b741b0, type: 2}
   m_BuildHeightMesh: 0
+--- !u!54 &8492881989151890570
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5165820044980849682}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
