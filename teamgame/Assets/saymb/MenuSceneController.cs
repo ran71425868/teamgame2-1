@@ -73,11 +73,18 @@ public class MenuSceneController : MonoBehaviour
     private int selectNumber = 1;
     public int select = 1;
 
+    [SerializeField] private AudioClip createBlockSE;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-
-
+        // AudioSourceを取得（なければ自動追加）
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
 
         foreach (var cell in toolSelectCells)
         {
@@ -127,6 +134,12 @@ public class MenuSceneController : MonoBehaviour
 
     private void CreateBlock(GameObject obj,GameObject Parent)
     {
+
+        // SE再生
+        if (createBlockSE != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(createBlockSE);
+        }
 
         // ブロックを作成する
         GameObject instanceObj = GameObject.Instantiate(obj, Parent.transform);
