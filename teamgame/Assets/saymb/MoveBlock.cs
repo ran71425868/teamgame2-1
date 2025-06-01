@@ -11,6 +11,9 @@ public class MoveBlock : MonoBehaviour
     public Vector3 moving, latestPos;
     public int selectBlock;
 
+    public Vector3 rotationSpeed; 
+
+
     private MenuSceneController menuSceneController;
     public void SetSceneController(MenuSceneController controller) => menuSceneController = controller;
 
@@ -20,9 +23,6 @@ public class MoveBlock : MonoBehaviour
 
     // true...動かせる
     //public bool focusFlag = false;
-
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +49,7 @@ public class MoveBlock : MonoBehaviour
 
     void MovementControll()
     {
+
         if (Input.GetKeyDown(KeyCode.Space)&&num>0)
         {
             num = 0;
@@ -58,10 +59,10 @@ public class MoveBlock : MonoBehaviour
             num = 1;
         }
         
-
         switch (num)
         {
             case 0:
+
                 moving = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
                 moving.Normalize();
                 moving = moving * speed;
@@ -79,6 +80,22 @@ public class MoveBlock : MonoBehaviour
         }
 
         transform.position = transform.position + (moving * speed) * Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            rotationSpeed = new Vector3(0, 0, 90); // 回転速度 (x, y, z)
+            // オブジェクトを毎フレームY軸を中心に回転させる
+            transform.Rotate(rotationSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // 目標の回転角度
+            Quaternion targetRotation = Quaternion.Euler(0, 0, -90);
+
+            // 現在の回転から目標回転へスムーズに補間
+            //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime);
+        }
     }
 
 }

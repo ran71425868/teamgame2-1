@@ -15,7 +15,7 @@ public class newStage1_2 : MonoBehaviour
             switch (stagenum)
             {
               case 0:
-                    SceneManager.LoadScene("Stage_2");
+                    SceneManager.LoadScene("Stage2");
                     break;
 
                 case 1:
