@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SwitchCamera : MonoBehaviour
 {
+    public int CameraNum = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,11 +12,17 @@ public class SwitchCamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    private void Update()
+    public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space)&&CameraNum==0)
         {
             ShowOverheadView();
+        }
+        
+
+        if (Input.GetKeyDown(KeyCode.Space) && CameraNum == 1)
+        {
+            ShowFirstPersonView();
         }
     }
 

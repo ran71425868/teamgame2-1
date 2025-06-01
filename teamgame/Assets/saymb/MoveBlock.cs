@@ -11,6 +11,9 @@ public class MoveBlock : MonoBehaviour
     public Vector3 moving, latestPos;
     public int selectBlock;
 
+    public SwitchCamera CameraNum;
+    [SerializeField] private int num;
+
     [SerializeField] private  Vector3 rotationSpeedQ = new Vector3(0, 0, 0); // ‰ñ“]‘¬“x (x, y, z); 
     [SerializeField] private  Vector3 rotationSpeedE = new Vector3(0, 0, 0); // ‰ñ“]‘¬“x (x, y, z); 
 
@@ -18,7 +21,6 @@ public class MoveBlock : MonoBehaviour
     private MenuSceneController menuSceneController;
     public void SetSceneController(MenuSceneController controller) => menuSceneController = controller;
 
-    private int num = 0;
     [SerializeField] private Material selectedMaterial;
     [SerializeField] private Material defaultMaterial;
 
@@ -70,7 +72,7 @@ public class MoveBlock : MonoBehaviour
     void MovementControll()
     {
 
-        if (Input.GetKeyDown(KeyCode.Space)&&num>0)
+        if (Input.GetKeyDown(KeyCode.Space) && num > 0)
         {
             num = 0;
         }
@@ -78,7 +80,7 @@ public class MoveBlock : MonoBehaviour
         {
             num = 1;
         }
-        
+
         switch (num)
         {
             case 0:
