@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 49105753}
   - component: {fileID: 49105752}
   - component: {fileID: 49105751}
+  - component: {fileID: 49105754}
   - component: {fileID: 49105750}
   m_Layer: 0
   m_Name: Main Camera
@@ -656,6 +657,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &49105754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49105749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728f4a30d8fd0f14385e20abb8de0890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _positionStep: 2
+  _mouseSensitive: 90
 --- !u!1 &51026405
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,6 +2766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfbb110d79d095446960e8f8322a4b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraNum: 0
   firstPersonCamera: {fileID: 297381492}
   overheadCamera: {fileID: 910092647}
 --- !u!20 &297381493
@@ -6729,6 +6745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfbb110d79d095446960e8f8322a4b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraNum: 0
   firstPersonCamera: {fileID: 910092647}
   overheadCamera: {fileID: 297381492}
 --- !u!114 &910092648
@@ -12466,6 +12483,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4757836856755875626, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: footstepClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f36b59bb6df36149a7d6b7ce23cccc2, type: 3}
     - target: {fileID: 4757836856755875626, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: targetTransform
       value: 

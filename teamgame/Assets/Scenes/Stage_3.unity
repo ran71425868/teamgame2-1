@@ -601,6 +601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfbb110d79d095446960e8f8322a4b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraNum: 0
   firstPersonCamera: {fileID: 75645125}
   overheadCamera: {fileID: 1209168072}
 --- !u!114 &75645126
@@ -11571,6 +11572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfbb110d79d095446960e8f8322a4b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraNum: 0
   firstPersonCamera: {fileID: 1209168072}
   overheadCamera: {fileID: 75645125}
 --- !u!20 &1209168073
@@ -13062,6 +13064,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4757836856755875626, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
+      propertyPath: footstepClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f36b59bb6df36149a7d6b7ce23cccc2, type: 3}
     - target: {fileID: 4757836856755875626, guid: bd6ee82c5e06b3f4f86113cbf8261ae1, type: 3}
       propertyPath: targetTransform
       value: 
