@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b4d04ca24f55ecf43af0b6c953c4a679, type: 2}
     - target: {fileID: 919132149155446097, guid: 07ff33ad0924bc240b9e7aca3f3a88eb, type: 3}
       propertyPath: m_Name
-      value: screw 1
+      value: screw
       objectReference: {fileID: 0}
     - target: {fileID: 3667222417568706118, guid: 07ff33ad0924bc240b9e7aca3f3a88eb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -104,14 +104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0818f70e3341f44a8fda8f8be74dea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
+  speed: 3
   moving: {x: 0, y: 0, z: 0}
   latestPos: {x: 0, y: 0, z: 0}
   selectBlock: 0
-  rotationSpeedQ: {x: 0, y: 0, z: 0}
-  rotationSpeedE: {x: 0, y: 0, z: 0}
-  selectedMaterial: {fileID: 0}
-  defaultMaterial: {fileID: 0}
+  rotationSpeedQ: {x: 0, y: -90, z: 0}
+  rotationSpeedE: {x: 0, y: 90, z: 0}
+  selectedMaterial: {fileID: 2100000, guid: d40564518082be94fa40881e547f086b, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: b4d04ca24f55ecf43af0b6c953c4a679, type: 2}
 --- !u!64 &1860728986028257578
 MeshCollider:
   m_ObjectHideFlags: 0
