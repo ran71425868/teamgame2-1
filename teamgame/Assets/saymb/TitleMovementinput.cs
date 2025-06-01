@@ -88,16 +88,36 @@ public class TitleMovementinput : MonoBehaviour
         forward.y = 0; right.y = 0;
 
         Vector3 desiredDirection = (forward * v + right * h).normalized;
-       
-        // Rayをプレイヤーの前方に飛ばす
-        Ray ray = new Ray(transform.position, transform.forward);
-        RaycastHit hit;
 
-        // レイキャストを実行して、何かに当たったかを確認
-        if (Physics.Raycast(ray, out hit))
+        if (desiredDirection != Vector3.zero && !blockRotationPlayer)
         {
-            Debug.Log("Hit object: " + hit.collider.name);
+            Quaternion toRotation = Quaternion.LookRotation(desiredDirection, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, desiredRotationSpeed);
         }
+
+        // 移動処理
+        isGrounded = controller.isGrounded;
+
+        if (isGrounded && verticalVelocity < 0)
+        {
+            verticalVelocity = -1f; // 地面に押しつける
+        }
+        else
+        {
+            verticalVelocity += gravity * Time.deltaTime;
+        }
+
+
+        //// Rayをプレイヤーの前方に飛ばす
+        //Ray ray = new Ray(transform.position, transform.forward);
+        //RaycastHit hit;
+
+        //// レイキャストを実行して、何かに当たったかを確認
+        //if (Physics.Raycast(ray, out hit))
+        //{
+        //    Debug.Log("Hit object: " + hit.collider.name);
+        //}
+
         //if (controller.isGrounded)
         //{
         //    verticalVelocity = -1f; // 接地時は落下しないよう軽く抑える
@@ -110,8 +130,12 @@ public class TitleMovementinput : MonoBehaviour
         moveDir = desiredDirection * moveSpeed;
         moveDir.y = verticalVelocity;
 
-        controller.Move(moveDir * Time.deltaTime);   
-        }
+        controller.Move(moveDir * Time.deltaTime);
+
+        //アニメーション制御
+        float speedPercent = new Vector3(controller.velocity.x, 0, controller.velocity.z).magnitude / moveSpeed;
+        anim.SetFloat("Blend", speedPercent, StartAnimTime, Time.deltaTime);
+    }
 
     public List<Transform> movePoints;
 
@@ -119,15 +143,37 @@ public class TitleMovementinput : MonoBehaviour
     {
 #if true
         // 0→2→4→6まで順番に移動
-        for (int index = 0; index < 27; index++)
+        //for (int index = 0; index <= 23; index++)
+         for (int index = 0; index < movePoints.Count; index++)
         {
-            while (Vector3.Distance(transform.position, movePoints[index].position) > 0.05f)
+            while (Vector3.Distance(transform.position, new Vector3(movePoints[index].position.x, transform.position.y, movePoints[index].position.z)) > 0.05f)
             {
-                Vector3 moveDir = (movePoints[index].position - transform.position).normalized;
+                var destination = new Vector3(movePoints[index].position.x, transform.position.y, movePoints[index].position.z);
+                Vector3 moveDir = (destination - transform.position).normalized;
                 controller.Move(moveDir * moveSpeed * Time.deltaTime);
+
+                // キャラクターの向きを目的地に向けて回転させる（任意）
+                if (moveDir != Vector3.zero)
+                {
+                    Quaternion toRotation = Quaternion.LookRotation(moveDir, Vector3.up);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, desiredRotationSpeed);
+                }
+
+                // アニメーション更新（Blend パラメータを更新）
+                float speedPercent = moveDir.magnitude; // 常に1だが、スムージングのために有効
+                anim.SetFloat("Blend", speedPercent, StartAnimTime, Time.deltaTime);
+
+
                 yield return null;
             }
+            Vector3 finalDir = (movePoints[index].position - transform.position);
+            finalDir.y = 0;
 
+            if (finalDir != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(finalDir, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, 1f); // 即時に回転
+            }
             // 位置をピッタリに補正
             //transform.position = new Vector3(transform.position.x, transform.position.y, z);
             //yield return new WaitForSeconds(waitTime); // 少し待ってから次に進む
