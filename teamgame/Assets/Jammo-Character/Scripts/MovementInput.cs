@@ -90,26 +90,6 @@ public class MovementInput : MonoBehaviour
         {
             targetTransform = targetObject.transform;
         }
-
-        if (targetTransform == null)
-        {
-            Debug.LogWarning("targetTransformが設定されていません！");
-        }
-        else
-        {
-            Debug.Log("targetTransformが正常に設定されています:" + targetTransform.name);
-        }
-
-        if (m_Agent != null)
-        {
-            Debug.Log("NavMeshAgent は有効か？ => " + m_Agent.enabled);
-        }
-        else
-        {
-            Debug.LogError("NavMeshAgent が取得できていません！");
-        }
-
-
     }
     // 毎フレーム呼ばれる
     void Update()
@@ -151,7 +131,6 @@ public class MovementInput : MonoBehaviour
         // 足音処理（移動中かつ接地中）
         if (m_Agent.enabled&& m_Agent.remainingDistance > m_Agent.stoppingDistance)
         {
-            Debug.Log("足音再生！");
             footstepTimer += Time.deltaTime;
 
             if (footstepTimer >= footstepInterval && !audioSource.isPlaying)

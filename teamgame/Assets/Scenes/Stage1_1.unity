@@ -273,6 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfbb110d79d095446960e8f8322a4b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraNum: 0
   firstPersonCamera: {fileID: 50333612}
   overheadCamera: {fileID: 797949291}
 --- !u!20 &50333613
@@ -5357,6 +5358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfbb110d79d095446960e8f8322a4b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraNum: 0
   firstPersonCamera: {fileID: 797949291}
   overheadCamera: {fileID: 50333612}
 --- !u!20 &797949292

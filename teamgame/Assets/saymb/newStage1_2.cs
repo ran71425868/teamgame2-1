@@ -9,7 +9,6 @@ public class newStage1_2 : MonoBehaviour
     [SerializeField] private int stagenum;
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"collision{other.gameObject.name}");
         if (other.gameObject.CompareTag("Player"))
         {
             switch (stagenum)
