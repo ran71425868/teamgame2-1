@@ -8269,7 +8269,7 @@ MonoBehaviour:
   snakeParent: {fileID: 1467402552}
   slopeObj: {fileID: 5846611907405978365, guid: 224de91ac4e701d41994076145df1351, type: 3}
   slopeParent: {fileID: 1467402552}
-  screwObj: {fileID: 259526162067104679, guid: 65fa3153fe5547340a45dea7655f2127, type: 3}
+  screwObj: {fileID: 8442928712656527602, guid: 3ff6db6c1a0c6e24181b54f4dea70fcd, type: 3}
   screwParent: {fileID: 1467402552}
   sasukeObj: {fileID: 3022155439353123143, guid: b98a927958ac2ea4085f7c780c2ddae6, type: 3}
   sasukeParent: {fileID: 1467402552}
@@ -8280,6 +8280,7 @@ MonoBehaviour:
   clayObj: {fileID: 477852805095726562, guid: cf990e488e2ad864fb8b0ea2a1aa888d, type: 3}
   clayParent: {fileID: 1467402552}
   select: 1
+  createBlockSE: {fileID: 0}
 --- !u!4 &1467402554
 Transform:
   m_ObjectHideFlags: 0
