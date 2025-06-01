@@ -14,7 +14,7 @@ public class AutoJumping : MonoBehaviour
         // “–‚½‚Á‚½‘Šè‚Ìƒ^ƒO‚ªPlayer‚¾‚Á‚½ê‡
         if (other.CompareTag("Player"))
         {
-            Debug.Log("‚ ‚½‚Á‚½");
+            //Debug.Log("‚ ‚½‚Á‚½");
 
             StartCoroutine(other.gameObject.GetComponent<MovementInput>().JumpOverObstacle(this.transform, jumpForce));
         }
