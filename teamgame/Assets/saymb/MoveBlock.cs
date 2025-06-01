@@ -34,15 +34,37 @@ public class MoveBlock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (selectBlock == menuSceneController.select)
+        //{
+        //    MovementControll();
+        //    GetComponent<Renderer>().material = selectedMaterial;
+        //}
+        //else
+        //{
+        //    GetComponent<Renderer>().material = defaultMaterial;
+        //}
+
+        var renderer = GetComponent<Renderer>();
+        var mats = renderer.materials;
+
         if (selectBlock == menuSceneController.select)
         {
             MovementControll();
-            GetComponent<Renderer>().material = selectedMaterial;
+
+            for (int i = 0; i < mats.Length; i++)
+            {
+                mats[i] = selectedMaterial;
+            }
         }
         else
         {
-            GetComponent<Renderer>().material = defaultMaterial;
+            for (int i = 0; i < mats.Length; i++)
+            {
+                mats[i] = defaultMaterial;
+            }
         }
+
+        renderer.materials = mats;
     }
 
     void MovementControll()
