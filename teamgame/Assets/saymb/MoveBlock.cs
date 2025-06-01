@@ -11,7 +11,8 @@ public class MoveBlock : MonoBehaviour
     public Vector3 moving, latestPos;
     public int selectBlock;
 
-    public Vector3 rotationSpeed; 
+    [SerializeField] private  Vector3 rotationSpeedQ = new Vector3(0, 0, 0); // 回転速度 (x, y, z); 
+    [SerializeField] private  Vector3 rotationSpeedE = new Vector3(0, 0, 0); // 回転速度 (x, y, z); 
 
 
     private MenuSceneController menuSceneController;
@@ -28,9 +29,6 @@ public class MoveBlock : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //speed = 5;
-
-       
     }
 
     // Update is called once per frame
@@ -81,20 +79,18 @@ public class MoveBlock : MonoBehaviour
 
         transform.position = transform.position + (moving * speed) * Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q))
         {
-            rotationSpeed = new Vector3(0, 0, 90); // 回転速度 (x, y, z)
+           
             // オブジェクトを毎フレームY軸を中心に回転させる
-            transform.Rotate(rotationSpeed * Time.deltaTime);
+            transform.Rotate(rotationSpeedQ * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
-            // 目標の回転角度
-            Quaternion targetRotation = Quaternion.Euler(0, 0, -90);
-
-            // 現在の回転から目標回転へスムーズに補間
-            //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime);
+      
+            // オブジェクトを毎フレームY軸を中心に回転させる
+            transform.Rotate(rotationSpeedE * Time.deltaTime);
         }
     }
 
