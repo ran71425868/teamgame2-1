@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.SceneManagement;
+
 
 public class StageSelect : MonoBehaviour
 {
@@ -28,8 +28,7 @@ public class StageSelect : MonoBehaviour
 
     private void Update()
     {
-        timer++;
-        Debug.Log(timer%100);
+
     }
     public void ClickstartButton()
     {
@@ -41,7 +40,7 @@ public class StageSelect : MonoBehaviour
                 break;
 
             case 1:
-                SceneManager.LoadScene("Stage_2");
+                SceneManager.LoadScene("Stage2");
                 PlaySE(); // Œø‰Ê‰¹‚ðÄ¶
                 break;
             case 2:
@@ -51,7 +50,6 @@ public class StageSelect : MonoBehaviour
 
             case 3:
                 PlaySE(); // Œø‰Ê‰¹‚ðÄ¶
-                if(timer%100>20)
                 SceneManager.LoadScene("Tutorial");
                 break;
 
