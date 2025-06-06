@@ -8,8 +8,10 @@ public class MoveBlock : MonoBehaviour
     private float speed;
     private Rigidbody rb = null;
 
-    public Vector3 moving, latestPos;
+    public Vector3 latestPos;
     public int selectBlock;
+
+    private Vector3 velocity;
 
     public SwitchCamera CameraNum;
     [SerializeField] private int num;
@@ -71,6 +73,8 @@ public class MoveBlock : MonoBehaviour
 
     void MovementControll()
     {
+        velocity = Vector3.zero;
+
 
         if (Input.GetKeyDown(KeyCode.Space) && num > 0)
         {
@@ -85,23 +89,71 @@ public class MoveBlock : MonoBehaviour
         {
             case 0:
 
-                moving = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-                moving.Normalize();
-                moving = moving * speed;
+                if (Input.GetKey(KeyCode.W))
+                {
+                    //transform.position += speed * transform.up * Time.deltaTime;
+                    velocity.y += 1;
+                }
+
+                if (Input.GetKey(KeyCode.S))
+                {
+                    //transform.position -= speed * transform.up * Time.deltaTime;
+                    velocity.y -= 1;
+                }
+
+                if (Input.GetKey(KeyCode.D))
+                {
+                    //transform.position += speed * transform.right * Time.deltaTime;
+                    velocity.x += 1;
+                }
+
+                if (Input.GetKey(KeyCode.A))
+                {
+                    //transform.position -= speed * transform.right * Time.deltaTime;
+                    velocity.x -= 1;
+                }
 
                 break;
 
             case 1:
 
-                moving = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-                moving.Normalize();
-                moving = moving * speed;
-                
+                if (Input.GetKey(KeyCode.W))
+                {
+                    //transform.position += speed * transform.forward * Time.deltaTime;
+                    velocity.z += 1;
+                }
+
+                if (Input.GetKey(KeyCode.S))
+                {
+                    //transform.position -= speed * transform.forward * Time.deltaTime;
+                    velocity.z -= 1;
+                }
+
+                if (Input.GetKey(KeyCode.D))
+                {
+                    //transform.position += speed * transform.right * Time.deltaTime;
+                    velocity.x += 1;
+                }
+
+                if (Input.GetKey(KeyCode.A))
+                {
+                    //transform.position -= speed * transform.right * Time.deltaTime;
+                    velocity.x -= 1;
+                }
+
                 break;
 
         }
 
-        transform.position = transform.position + (moving * speed) * Time.deltaTime;
+        velocity = velocity.normalized * speed * Time.deltaTime;
+
+        if (velocity.magnitude > 0)
+        {
+            // プレイヤーの位置(transform.position)の更新
+            // 移動方向ベクトル(velocity)を足し込みます
+            transform.position += velocity;
+        }
+
 
         if (Input.GetKey(KeyCode.Q))
         {

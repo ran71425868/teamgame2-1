@@ -8329,7 +8329,7 @@ MonoBehaviour:
   - {fileID: 1741969742}
   - {fileID: 431717671}
   - {fileID: 675078192}
-  - {fileID: 1822610717}
+  - {fileID: 0}
   - {fileID: 643952738}
   - {fileID: 364125246}
   - {fileID: 1738363698}
@@ -8358,8 +8358,8 @@ MonoBehaviour:
   snakeParent: {fileID: 1467402552}
   slopeObj: {fileID: 5846611907405978365, guid: 224de91ac4e701d41994076145df1351, type: 3}
   slopeParent: {fileID: 1467402552}
-  jumpPadObj: {fileID: 5165820044980849682, guid: fe8fd14edc06f7944a02842a1043dd48, type: 3}
-  jumpPadParent: {fileID: 1467402552}
+  halfObj: {fileID: 0}
+  halfParent: {fileID: 1467402552}
   sasukeObj: {fileID: 3022155439353123143, guid: b98a927958ac2ea4085f7c780c2ddae6, type: 3}
   sasukeParent: {fileID: 1467402552}
   outletObj: {fileID: 4230049720487350888, guid: 2da709cf312fa754681936cc2e768eba, type: 3}

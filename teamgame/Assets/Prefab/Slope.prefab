@@ -123,9 +123,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  moving: {x: 0, y: 0, z: 0}
   latestPos: {x: 0, y: 0, z: 0}
   selectBlock: 0
+  CameraNum: {fileID: 0}
+  num: 0
   rotationSpeedQ: {x: -45, y: 0, z: -90}
   rotationSpeedE: {x: 45, y: 0, z: 90}
   selectedMaterial: {fileID: 2100000, guid: d40564518082be94fa40881e547f086b, type: 2}
