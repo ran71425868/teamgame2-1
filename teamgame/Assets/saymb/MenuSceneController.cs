@@ -293,10 +293,14 @@ public class MenuSceneController : MonoBehaviour
 
             case EToolType.Back:
                 {
+                    if (selectNumber > 1)
+                    {
                     selectNumber--;
                     var block = BlockManager.Instance.Removed(select,selectNumber);
 
                     Destroy(block.gameObject);
+                    }
+
                 }
                
                 break;

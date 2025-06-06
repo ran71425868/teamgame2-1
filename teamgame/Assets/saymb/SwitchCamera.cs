@@ -4,7 +4,16 @@ using UnityEngine;
 
 public class SwitchCamera : MonoBehaviour
 {
-    public int CameraNum = 0;
+    public enum CameraType
+    {
+        First,
+        OverHead
+    }
+
+    public CameraType CurrentCType = CameraType.First;
+    public Camera firstPersonCamera;
+    public Camera overheadCamera;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,20 +23,20 @@ public class SwitchCamera : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)&&CameraNum==0)
-        {
-            ShowOverheadView();
-        }
-        
+        if (!Input.GetKeyDown(KeyCode.Space)) return;
 
-        if (Input.GetKeyDown(KeyCode.Space) && CameraNum == 1)
+        switch (CurrentCType)
         {
-            ShowFirstPersonView();
+            case CameraType.First:
+                ShowOverheadView();
+                break;
+
+                case CameraType.OverHead:
+                ShowFirstPersonView();
+                break;
         }
     }
 
-    public SwitchCamera firstPersonCamera;
-    public SwitchCamera overheadCamera;
 
     // FPS カメラを使用不可にするためには、この関数を呼び出し
     // オーバーヘッドカメラを使用可能にします
@@ -35,6 +44,8 @@ public class SwitchCamera : MonoBehaviour
     {
         firstPersonCamera.gameObject.SetActive(false);
         overheadCamera.gameObject.SetActive(true);
+
+        CurrentCType=CameraType.OverHead;
     }
 
     // FPS カメラを使用可能にするためには、この関数を呼び出し
@@ -43,5 +54,7 @@ public class SwitchCamera : MonoBehaviour
     {
         firstPersonCamera.gameObject.SetActive(true);
         overheadCamera.gameObject.SetActive(false);
+
+        CurrentCType = CameraType.First;
     }
 }

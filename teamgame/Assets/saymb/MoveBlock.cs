@@ -13,7 +13,7 @@ public class MoveBlock : MonoBehaviour
 
     private Vector3 velocity;
 
-    public SwitchCamera CameraNum;
+    private SwitchCamera switchCamera;
     [SerializeField] private int num;
 
     [SerializeField] private  Vector3 rotationSpeedQ = new Vector3(0, 0, 0); // ‰ñ“]‘¬“x (x, y, z); 
@@ -33,6 +33,7 @@ public class MoveBlock : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        switchCamera = GameObject.FindAnyObjectByType<SwitchCamera>();
     }
 
     // Update is called once per frame
@@ -51,7 +52,7 @@ public class MoveBlock : MonoBehaviour
         var renderer = GetComponent<Renderer>();
         var mats = renderer.materials;
 
-        if (selectBlock == menuSceneController.select)
+        if (selectBlock == menuSceneController?.select)
         {
             MovementControll();
 
@@ -76,18 +77,18 @@ public class MoveBlock : MonoBehaviour
         velocity = Vector3.zero;
 
 
-        if (Input.GetKeyDown(KeyCode.Space) && num > 0)
-        {
-            num = 0;
-        }
-        else if (Input.GetKeyDown(KeyCode.Space))
-        {
-            num = 1;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space) && num > 0)
+        //{
+        //    num = 0;
+        //}
+        //else if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    num = 1;
+        //}
 
-        switch (num)
+        switch (switchCamera.CurrentCType)
         {
-            case 0:
+            case SwitchCamera.CameraType.First:
 
                 if (Input.GetKey(KeyCode.W))
                 {
@@ -115,7 +116,7 @@ public class MoveBlock : MonoBehaviour
 
                 break;
 
-            case 1:
+            case SwitchCamera.CameraType.OverHead:
 
                 if (Input.GetKey(KeyCode.W))
                 {
